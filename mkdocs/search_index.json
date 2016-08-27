@@ -1,0 +1,314 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to RSPET's Documentation!\n\n\nRSPET\n (Reverse Shell and Post Exploitation Tool) is a Python based reverse shell\nequipped with functionalities that assist in a post exploitation scenario.\n\n\nGeneral\n\n\n\n\nGoals Overview\n\n\nFrequently Asked Questions\n\n\n\n\nUser Documentation\n\n\nThese documents are mainly interesting to people seeking to use RSPET as-is.\n\n\n\n\nDeployment\n\n\nCLI Commands\n\n\nPlug-ins\n\n\n\n\nDeveloper Documentation\n\n\nThese documents should be of interest to those looking into contributing to\nRSPET and/or developing plug-ins.\n\n\n\n\nExecution Model\n\n\nCode Structure Overview\n\n\nDeveloping Plug-ins", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-rspets-documentation", 
+            "text": "RSPET  (Reverse Shell and Post Exploitation Tool) is a Python based reverse shell\nequipped with functionalities that assist in a post exploitation scenario.", 
+            "title": "Welcome to RSPET's Documentation!"
+        }, 
+        {
+            "location": "/#general", 
+            "text": "Goals Overview  Frequently Asked Questions", 
+            "title": "General"
+        }, 
+        {
+            "location": "/#user-documentation", 
+            "text": "These documents are mainly interesting to people seeking to use RSPET as-is.   Deployment  CLI Commands  Plug-ins", 
+            "title": "User Documentation"
+        }, 
+        {
+            "location": "/#developer-documentation", 
+            "text": "These documents should be of interest to those looking into contributing to\nRSPET and/or developing plug-ins.   Execution Model  Code Structure Overview  Developing Plug-ins", 
+            "title": "Developer Documentation"
+        }, 
+        {
+            "location": "/goals/", 
+            "text": "Goals Overview\n\n\n\n\nGoals\n\n\nTodo\n\n\n\n\nGoals\n\n\nIn the short-term goals, it's planned for both server and client to have a\nplug-in system implemented.\n\n\nIn the long-term goals, a comprehensive guide has to be created about plug-in\ncreation so third party plug-ins can easily be created without internal knowledge\nof RSPET's design. Along with that a set of rules has to be developed for 3rd\nparty plug-ins to be officially endorsed, so that information about plug-ins can\nbe centralized.\n\n\nIn between, bugs and existing design flaws along side feature requests have to be\ndealt with.\n\n\nTodo\n\n\n\n\nFix logic bug where if a dirrect command's to Host OS execution is perpetual the Server deadlocks\n\n\nAdd client update mechanism (being worked on)\n\n\nAdd UDP Reflection functionality (already in the workings)\n\n\nProvide more settings via config file\n\n\nRe-introduce multythreading when handling multiple hosts.\n\n\nMake commands available with 'Tab' automaticly generated based on loaded plugins.\n\n\nFix logical bug when deleting a client. (Client still shows up on List_Hosts)\n\n\nCreate comprehensive plug-in creation guide.", 
+            "title": "Goals"
+        }, 
+        {
+            "location": "/goals/#goals-overview", 
+            "text": "Goals  Todo", 
+            "title": "Goals Overview"
+        }, 
+        {
+            "location": "/goals/#goals", 
+            "text": "In the short-term goals, it's planned for both server and client to have a\nplug-in system implemented.  In the long-term goals, a comprehensive guide has to be created about plug-in\ncreation so third party plug-ins can easily be created without internal knowledge\nof RSPET's design. Along with that a set of rules has to be developed for 3rd\nparty plug-ins to be officially endorsed, so that information about plug-ins can\nbe centralized.  In between, bugs and existing design flaws along side feature requests have to be\ndealt with.", 
+            "title": "Goals"
+        }, 
+        {
+            "location": "/goals/#todo", 
+            "text": "Fix logic bug where if a dirrect command's to Host OS execution is perpetual the Server deadlocks  Add client update mechanism (being worked on)  Add UDP Reflection functionality (already in the workings)  Provide more settings via config file  Re-introduce multythreading when handling multiple hosts.  Make commands available with 'Tab' automaticly generated based on loaded plugins.  Fix logical bug when deleting a client. (Client still shows up on List_Hosts)  Create comprehensive plug-in creation guide.", 
+            "title": "Todo"
+        }, 
+        {
+            "location": "/deploy/", 
+            "text": "Deployment\n\n\nThe RSPET model consists of two modules, \nrspet_server.py\n and \nrspet_client.py\n.\nThe first is located at the attacker/PenTester/Auditor's machine and the later on\nthe target machine(s).\n\n\nExecution\n\n\nParameters in \n[]\n are optional and in \n are mandatory.\n\n\n\n\nrspet_server.py [max_connections]\n - Lunch the server.\n\n\nrspet_client.py \nserver_ip\n [server_port]\n - Lunch the client.", 
+            "title": "Deployment"
+        }, 
+        {
+            "location": "/deploy/#deployment", 
+            "text": "The RSPET model consists of two modules,  rspet_server.py  and  rspet_client.py .\nThe first is located at the attacker/PenTester/Auditor's machine and the later on\nthe target machine(s).", 
+            "title": "Deployment"
+        }, 
+        {
+            "location": "/deploy/#execution", 
+            "text": "Parameters in  []  are optional and in   are mandatory.   rspet_server.py [max_connections]  - Lunch the server.  rspet_client.py  server_ip  [server_port]  - Lunch the client.", 
+            "title": "Execution"
+        }, 
+        {
+            "location": "/cli/", 
+            "text": "CLI Commands\n\n\nRSPET's server module provides a Command Line Interface (CLI) to its user. This\npart aims to introduce RSPET's CLI and detail the available commands.\n\n\nThe commands listed bellow are part of the \nessentials\n, the\n\nfiles\n and the \nudp\n plug-ins.\n\n\nFeel free to ignore the \"State(s)\" and the \"Transition\" fields as the will rarely\nbe of use to an end user and are here purely to assist contributors and Plug-in\ndevelopers.\n\n\nessentials\n\n\nhelp\n\n\nDesc : List commands available in current state or provide syntax for a command.\n\n\nSyntax : help [command]\n\n\nState(s) : \"basic\", \"connected\", \"selected\"\n\n\nTransition : None\n\n\nChoose_Host\n\n\nDesc : Select a single host.\n\n\nSyntax : Choose_Host \n\n\nState(s) : \"basic\"\n\n\nTransition : \"connected\"\n\n\nSelect\n\n\nDesc : Select multiple hosts.\n\n\nSyntax : Select \n\n\nState(s) : \"basic\"\n\n\nTransition : \"multiple\"\n\n\nALL\n\n\nDesc : Select all hosts.\n\n\nSyntax : ALL\n\n\nState(s) : \"basic\"\n\n\nTransition : \"all\"\n\n\nQuit\n\n\nDesc : Quit the CLI and terminate the server.\n\n\nSyntax : Quit\n\n\nState(s) : \"basic\"\n\n\nTransition : None\n\n\nExecute\n\n\nDesc : Execute system command on client.\n\n\nSyntax : Execute \n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nClose_Connection\n\n\nDesc : Kick the selected Client(s).\n\n\nSyntax : Close_Connection\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : \"basic\"\n\n\nList_Hosts\n\n\nDesc : List all connected hosts.\n\n\nSyntax : List_Hosts\n\n\nState(s) : \"basic\"\n\n\nTransition : None\n\n\nList_Sel_Hosts\n\n\nDesc : List selected hosts.\n\n\nSyntax : List_Sel_Hosts\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nExit\n\n\nDesc : Unselect all hosts.\n\n\nSyntax : Exit\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : \"basic\"\n\n\nKILL\n\n\nDesc : Stop client(s) from doing the current task.\n\n\nSyntax : KILL\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nfiles\n\n\nPull_File\n\n\nDesc : Pull a regular text file from the client.\n\n\nSyntax : Pull_File \n [local_file]\n\n\nState(s) : \"connected\"\n\n\nTransition : None\n\n\nPull_Binary\n\n\nDesc : Pull a binary file from the client.\n\n\nSyntax : Pull_Binary \n [local_bin]\n\n\nState(s) : \"connected\"\n\n\nTransition : None\n\n\nMake_File\n\n\nDesc : Send a regular text file to the host(s).\n\n\nSyntax : Make_File \n [remote_file]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nMake_Binary\n\n\nDesc : Send a binary file to the host(s).\n\n\nSyntax : Make_Binary \n [remote_bin]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nudp\n\n\nUDP_Flood\n\n\nDesc : Flood target machine with UDP packets.\n\n\nSyntax : UDP_Flood \n \n [payload]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nUDP_Spoof\n\n\nDesc : Flood target machine with UDP packets via spoofed ip \n port.\n\n\nSyntax : UDP_Spoof \n \n \n \n [payload]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None", 
+            "title": "CLI Commands"
+        }, 
+        {
+            "location": "/cli/#cli-commands", 
+            "text": "RSPET's server module provides a Command Line Interface (CLI) to its user. This\npart aims to introduce RSPET's CLI and detail the available commands.  The commands listed bellow are part of the  essentials , the files  and the  udp  plug-ins.  Feel free to ignore the \"State(s)\" and the \"Transition\" fields as the will rarely\nbe of use to an end user and are here purely to assist contributors and Plug-in\ndevelopers.", 
+            "title": "CLI Commands"
+        }, 
+        {
+            "location": "/cli/#essentials", 
+            "text": "", 
+            "title": "essentials"
+        }, 
+        {
+            "location": "/cli/#help", 
+            "text": "Desc : List commands available in current state or provide syntax for a command.  Syntax : help [command]  State(s) : \"basic\", \"connected\", \"selected\"  Transition : None", 
+            "title": "help"
+        }, 
+        {
+            "location": "/cli/#choose_host", 
+            "text": "Desc : Select a single host.  Syntax : Choose_Host   State(s) : \"basic\"  Transition : \"connected\"", 
+            "title": "Choose_Host"
+        }, 
+        {
+            "location": "/cli/#select", 
+            "text": "Desc : Select multiple hosts.  Syntax : Select   State(s) : \"basic\"  Transition : \"multiple\"", 
+            "title": "Select"
+        }, 
+        {
+            "location": "/cli/#all", 
+            "text": "Desc : Select all hosts.  Syntax : ALL  State(s) : \"basic\"  Transition : \"all\"", 
+            "title": "ALL"
+        }, 
+        {
+            "location": "/cli/#quit", 
+            "text": "Desc : Quit the CLI and terminate the server.  Syntax : Quit  State(s) : \"basic\"  Transition : None", 
+            "title": "Quit"
+        }, 
+        {
+            "location": "/cli/#execute", 
+            "text": "Desc : Execute system command on client.  Syntax : Execute   State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "Execute"
+        }, 
+        {
+            "location": "/cli/#close_connection", 
+            "text": "Desc : Kick the selected Client(s).  Syntax : Close_Connection  State(s) : \"connected\", \"multiple\"  Transition : \"basic\"", 
+            "title": "Close_Connection"
+        }, 
+        {
+            "location": "/cli/#list_hosts", 
+            "text": "Desc : List all connected hosts.  Syntax : List_Hosts  State(s) : \"basic\"  Transition : None", 
+            "title": "List_Hosts"
+        }, 
+        {
+            "location": "/cli/#list_sel_hosts", 
+            "text": "Desc : List selected hosts.  Syntax : List_Sel_Hosts  State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "List_Sel_Hosts"
+        }, 
+        {
+            "location": "/cli/#exit", 
+            "text": "Desc : Unselect all hosts.  Syntax : Exit  State(s) : \"connected\", \"multiple\"  Transition : \"basic\"", 
+            "title": "Exit"
+        }, 
+        {
+            "location": "/cli/#kill", 
+            "text": "Desc : Stop client(s) from doing the current task.  Syntax : KILL  State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "KILL"
+        }, 
+        {
+            "location": "/cli/#files", 
+            "text": "", 
+            "title": "files"
+        }, 
+        {
+            "location": "/cli/#pull_file", 
+            "text": "Desc : Pull a regular text file from the client.  Syntax : Pull_File   [local_file]  State(s) : \"connected\"  Transition : None", 
+            "title": "Pull_File"
+        }, 
+        {
+            "location": "/cli/#pull_binary", 
+            "text": "Desc : Pull a binary file from the client.  Syntax : Pull_Binary   [local_bin]  State(s) : \"connected\"  Transition : None", 
+            "title": "Pull_Binary"
+        }, 
+        {
+            "location": "/cli/#make_file", 
+            "text": "Desc : Send a regular text file to the host(s).  Syntax : Make_File   [remote_file]  State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "Make_File"
+        }, 
+        {
+            "location": "/cli/#make_binary", 
+            "text": "Desc : Send a binary file to the host(s).  Syntax : Make_Binary   [remote_bin]  State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "Make_Binary"
+        }, 
+        {
+            "location": "/cli/#udp", 
+            "text": "", 
+            "title": "udp"
+        }, 
+        {
+            "location": "/cli/#udp_flood", 
+            "text": "Desc : Flood target machine with UDP packets.  Syntax : UDP_Flood     [payload]  State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "UDP_Flood"
+        }, 
+        {
+            "location": "/cli/#udp_spoof", 
+            "text": "Desc : Flood target machine with UDP packets via spoofed ip   port.  Syntax : UDP_Spoof         [payload]  State(s) : \"connected\", \"multiple\"  Transition : None", 
+            "title": "UDP_Spoof"
+        }, 
+        {
+            "location": "/plug_ins/", 
+            "text": "Plug-ins\n\n\nThis is a list of all officially endorsed Plug-ins. To install a plug-in, simply\nplace it inside the \"Plugins\" folder and add its name to config.jason file.\n\n\nFor the 'core' plug-ins and their functions GoTo \nCLI Commands\n\n\nWhen using non-officially endorsed plug-ins keep an eye out for conflicts!\n\n\nNo plug-ins currently available. Come back later, or \nlearn how to make one", 
+            "title": "Plug-ins"
+        }, 
+        {
+            "location": "/plug_ins/#plug-ins", 
+            "text": "This is a list of all officially endorsed Plug-ins. To install a plug-in, simply\nplace it inside the \"Plugins\" folder and add its name to config.jason file.  For the 'core' plug-ins and their functions GoTo  CLI Commands  When using non-officially endorsed plug-ins keep an eye out for conflicts!  No plug-ins currently available. Come back later, or  learn how to make one", 
+            "title": "Plug-ins"
+        }, 
+        {
+            "location": "/execution_model/", 
+            "text": "Server Execution Model\n\n\nStates\n\n\nRSPET's CLI is built on a state transition model. In its current version it has\nthree states, it's either in the \"basic\" state, the \"connected\" state or the\n\"multiple\" state. CLI's states directly relate to what the commands provided\naffect.\n\n\nIn the \"basic\" state commands provided affect the server itself.\n\n\nIn the \"connected\" state commands provided affect the selected client.\n\n\nIn the \"multiple\" state commands provided affect all the selected clients.\n\n\nTransitions\n\n\nIn a state transition model transitions are necessary so that the model can \"move\"\nbetween states. In RSPET' CLI's model there are five transitions,  \"basic\" that\nwill move the model to \"basic\" state should it be in any other, \"connected\" that\nwill move the model to \"connected\" state only from \"basic\" state, \"multiple\" that\nwill move the model to \"multiple\" state only from \"basic\" state, \"all\" that is\nan interface of \"multiple\" and None that does not affect the model in any way.\n\n\nThe state transition diagram for RSPET's server can be found bellow.\n\n\n\n\nClient Execution Model\n\n\nTODO", 
+            "title": "Execution Model"
+        }, 
+        {
+            "location": "/execution_model/#server-execution-model", 
+            "text": "", 
+            "title": "Server Execution Model"
+        }, 
+        {
+            "location": "/execution_model/#states", 
+            "text": "RSPET's CLI is built on a state transition model. In its current version it has\nthree states, it's either in the \"basic\" state, the \"connected\" state or the\n\"multiple\" state. CLI's states directly relate to what the commands provided\naffect.  In the \"basic\" state commands provided affect the server itself.  In the \"connected\" state commands provided affect the selected client.  In the \"multiple\" state commands provided affect all the selected clients.", 
+            "title": "States"
+        }, 
+        {
+            "location": "/execution_model/#transitions", 
+            "text": "In a state transition model transitions are necessary so that the model can \"move\"\nbetween states. In RSPET' CLI's model there are five transitions,  \"basic\" that\nwill move the model to \"basic\" state should it be in any other, \"connected\" that\nwill move the model to \"connected\" state only from \"basic\" state, \"multiple\" that\nwill move the model to \"multiple\" state only from \"basic\" state, \"all\" that is\nan interface of \"multiple\" and None that does not affect the model in any way.  The state transition diagram for RSPET's server can be found bellow.", 
+            "title": "Transitions"
+        }, 
+        {
+            "location": "/execution_model/#client-execution-model", 
+            "text": "TODO", 
+            "title": "Client Execution Model"
+        }, 
+        {
+            "location": "/code_structure/", 
+            "text": "Code Structure Overview", 
+            "title": "Code Structure"
+        }, 
+        {
+            "location": "/code_structure/#code-structure-overview", 
+            "text": "", 
+            "title": "Code Structure Overview"
+        }, 
+        {
+            "location": "/dev/", 
+            "text": "Developing Plug-ins\n\n\nThis guide aims to provide help to those developing Plug-ins for RSPET. Before\nyou start it would be good to use the program a bit (in order to have a level\nof familiarity with it's execution flow) and to have a look at RSPET's\n\nExecution Model\n which covers most of the needed background.\n\n\nWhat it is\n\n\nA Plug-in for RSPET is a python file and more specifically a library (meaning it\nis imported).\n\n\nYour Checklist\n\n\nYour plug-in needs to do the following :\n\n\n\n\nimport the plug-in framework\n\n\n\n\n    from Plugins.mount import Plugin\n\n\n\n\n\n\ncreate a class inheriting from \nPlugin\n e.g.:\n\n\n\n\n    class Essentials(Plugin):\n      \n\n      Class expanding Plugin.\n      \n\n      __server_commands__ = {}\n      __cmd_help__ = {}\n\n\n\n\nGoing Deeper\n\n\nNow in order for your plug-in to help a user it has to offer CLI commands. To do\nthat, in the class created above create an \ninit\n function. Inside this function\ncreate a new entry to \n__server_commands__\n Dictionary with your command's name\nas an index and an array as a value. Said array should have the function that\nexecutes the code as it's first value and the state's in which the command should\nbe available in as the rest. Finally, create a new entry to \n__cmd_help__\n\nDictionary with your command's name as an index and a string containing the\ncommand's syntax. Let's see how this is done with the core command \nhelp\n:\n\n\n    class Essentials(Plugin):\n      \n\n      Class expanding Plugin.\n      \n\n      __server_commands__ = {}\n      __cmd_help__ = {}\n\n      def __init__(self):\n        \n\n        Declare plugin's CLI commands their syntax and their scope.\n        \n\n        self.__server_commands__[\nhelp\n] = [self.help, \nbasic\n, \nconnected\n, \nmultiple\n]\n        self.__cmd_help__[\nhelp\n] = \nhelp [command]\n\n\n      def help(self, server, args): #Note that all functions should take those arguments.\n        \nList commands available in current state or provide syntax for a command.\n\n        #Do stuff to print help\n        return None #Here you return the desired transition. None takes no \n the rest do.\n\n\n\n\nLet's notice a few more things on the previous example. First we see the arguments\npassed to help, the first one (ignoring self) is server which an instance of a\n\nServer Object\n. The second one is args, which is an array of\nthe arguments the user provided to our command. The number and the validity of\nthe arguments SHOULD be checked (for missing arguments, type miss-match etc). The\nsecond thing we notice is the functions docstring, when help displays a list of\navailable commands to the user, it will couple your command with it's docstring\nas a description.\n\n\nServer Object\n\n\nIn order to communicate with RSPET's server, a plug-in has to interface with an\ninstance of a Server Object. In order to achieve that the class exposes the following\nfunctions.\n\n\nselect\n\n\nDesc : Selects given host(s) based on ids.\n\n\nArgs : ids (optional)\n\n\nget_selected\n\n\nDesc : Interface function. Return selected \nhosts\n.\n\n\nArgs : -\n\n\nget_hosts\n\n\nDesc : Interface function. Return all \nhosts\n.\n\n\nArgs : -\n\n\nexecute\n\n\nDesc : Execute function on all selected client objects.\n\n\nArgs : cmd, args\n\n\nclean\n\n\nDesc : Remove hosts taged for deletion and unselect all selected hosts.\n\n\nArgs : -\n\n\nquit\n\n\nDesc : Interface function. Raise a Quit signal.\n\n\nArgs : -\n\n\nHost Object\n\n\nEach instance of the Host Object represents a connected client. When a host is\nacquired (through either \nget_hosts\n or \nget_selected\n)\nit too exposes some functions to help plug-in developers Interface with RSPET.\n\n\ntrash\n\n\nDesc : Gracefully delete host.\n\n\nArgs : -\n\n\npurge\n\n\nDesc : Delete host not so gracefully.\n\n\nArgs : -\n\n\nsend\n\n\nDesc : Send message to host\n\n\nArgs : msg(string)\n\n\nrecv\n\n\nDesc : Receive from host\n\n\nArgs : size (int)", 
+            "title": "Developing Plug-ins"
+        }, 
+        {
+            "location": "/dev/#developing-plug-ins", 
+            "text": "This guide aims to provide help to those developing Plug-ins for RSPET. Before\nyou start it would be good to use the program a bit (in order to have a level\nof familiarity with it's execution flow) and to have a look at RSPET's Execution Model  which covers most of the needed background.", 
+            "title": "Developing Plug-ins"
+        }, 
+        {
+            "location": "/dev/#what-it-is", 
+            "text": "A Plug-in for RSPET is a python file and more specifically a library (meaning it\nis imported).", 
+            "title": "What it is"
+        }, 
+        {
+            "location": "/dev/#your-checklist", 
+            "text": "Your plug-in needs to do the following :   import the plug-in framework       from Plugins.mount import Plugin   create a class inheriting from  Plugin  e.g.:       class Essentials(Plugin):\n       \n      Class expanding Plugin.\n       \n      __server_commands__ = {}\n      __cmd_help__ = {}", 
+            "title": "Your Checklist"
+        }, 
+        {
+            "location": "/dev/#going-deeper", 
+            "text": "Now in order for your plug-in to help a user it has to offer CLI commands. To do\nthat, in the class created above create an  init  function. Inside this function\ncreate a new entry to  __server_commands__  Dictionary with your command's name\nas an index and an array as a value. Said array should have the function that\nexecutes the code as it's first value and the state's in which the command should\nbe available in as the rest. Finally, create a new entry to  __cmd_help__ \nDictionary with your command's name as an index and a string containing the\ncommand's syntax. Let's see how this is done with the core command  help :      class Essentials(Plugin):\n       \n      Class expanding Plugin.\n       \n      __server_commands__ = {}\n      __cmd_help__ = {}\n\n      def __init__(self):\n         \n        Declare plugin's CLI commands their syntax and their scope.\n         \n        self.__server_commands__[ help ] = [self.help,  basic ,  connected ,  multiple ]\n        self.__cmd_help__[ help ] =  help [command] \n\n      def help(self, server, args): #Note that all functions should take those arguments.\n         List commands available in current state or provide syntax for a command. \n        #Do stuff to print help\n        return None #Here you return the desired transition. None takes no   the rest do.  Let's notice a few more things on the previous example. First we see the arguments\npassed to help, the first one (ignoring self) is server which an instance of a Server Object . The second one is args, which is an array of\nthe arguments the user provided to our command. The number and the validity of\nthe arguments SHOULD be checked (for missing arguments, type miss-match etc). The\nsecond thing we notice is the functions docstring, when help displays a list of\navailable commands to the user, it will couple your command with it's docstring\nas a description.", 
+            "title": "Going Deeper"
+        }, 
+        {
+            "location": "/dev/#server-object", 
+            "text": "In order to communicate with RSPET's server, a plug-in has to interface with an\ninstance of a Server Object. In order to achieve that the class exposes the following\nfunctions.", 
+            "title": "Server Object"
+        }, 
+        {
+            "location": "/dev/#select", 
+            "text": "Desc : Selects given host(s) based on ids.  Args : ids (optional)", 
+            "title": "select"
+        }, 
+        {
+            "location": "/dev/#get_selected", 
+            "text": "Desc : Interface function. Return selected  hosts .  Args : -", 
+            "title": "get_selected"
+        }, 
+        {
+            "location": "/dev/#get_hosts", 
+            "text": "Desc : Interface function. Return all  hosts .  Args : -", 
+            "title": "get_hosts"
+        }, 
+        {
+            "location": "/dev/#execute", 
+            "text": "Desc : Execute function on all selected client objects.  Args : cmd, args", 
+            "title": "execute"
+        }, 
+        {
+            "location": "/dev/#clean", 
+            "text": "Desc : Remove hosts taged for deletion and unselect all selected hosts.  Args : -", 
+            "title": "clean"
+        }, 
+        {
+            "location": "/dev/#quit", 
+            "text": "Desc : Interface function. Raise a Quit signal.  Args : -", 
+            "title": "quit"
+        }, 
+        {
+            "location": "/dev/#host-object", 
+            "text": "Each instance of the Host Object represents a connected client. When a host is\nacquired (through either  get_hosts  or  get_selected )\nit too exposes some functions to help plug-in developers Interface with RSPET.", 
+            "title": "Host Object"
+        }, 
+        {
+            "location": "/dev/#trash", 
+            "text": "Desc : Gracefully delete host.  Args : -", 
+            "title": "trash"
+        }, 
+        {
+            "location": "/dev/#purge", 
+            "text": "Desc : Delete host not so gracefully.  Args : -", 
+            "title": "purge"
+        }, 
+        {
+            "location": "/dev/#send", 
+            "text": "Desc : Send message to host  Args : msg(string)", 
+            "title": "send"
+        }, 
+        {
+            "location": "/dev/#recv", 
+            "text": "Desc : Receive from host  Args : size (int)", 
+            "title": "recv"
+        }, 
+        {
+            "location": "/faq/", 
+            "text": "FAQ\n\n\nWe currently have none.", 
+            "title": "FAQ"
+        }, 
+        {
+            "location": "/faq/#faq", 
+            "text": "We currently have none.", 
+            "title": "FAQ"
+        }
+    ]
+}
