@@ -241,40 +241,82 @@ as a description.</p>
 <p>In order to communicate with RSPET's server, a plug-in has to interface with an
 instance of a Server Object. In order to achieve that the class exposes the following
 functions.</p>
-<h3 id="select">select</h3>
-<p>Desc : Selects given host(s) based on ids.</p>
-<p>Args : ids (optional)</p>
-<h3 id="get_selected">get_selected</h3>
-<p>Desc : Interface function. Return selected <a href="#host-object">hosts</a>.</p>
-<p>Args : -</p>
-<h3 id="get_hosts">get_hosts</h3>
-<p>Desc : Interface function. Return all <a href="#host-object">hosts</a>.</p>
-<p>Args : -</p>
-<h3 id="execute">execute</h3>
-<p>Desc : Execute function on all selected client objects.</p>
-<p>Args : cmd, args</p>
-<h3 id="clean">clean</h3>
-<p>Desc : Remove hosts taged for deletion and unselect all selected hosts.</p>
-<p>Args : -</p>
-<h3 id="quit">quit</h3>
-<p>Desc : Interface function. Raise a Quit signal.</p>
-<p>Args : -</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>select</td>
+<td>Selects given host(s) based on ids.</td>
+<td>ids (optional)</td>
+</tr>
+<tr>
+<td>get_selected</td>
+<td>Interface function. Return selected <a href="#host-object">hosts</a>.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>get_hosts</td>
+<td>Interface function. Return all <a href="#host-object">hosts</a>.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>execute</td>
+<td>Execute function on all selected client objects.</td>
+<td>cmd, args</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>Remove hosts taged for deletion and unselect all selected hosts.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>Interface function. Raise a Quit signal.</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <h2 id="host-object">Host Object</h2>
 <p>Each instance of the Host Object represents a connected client. When a host is
-acquired (through either <a href="#get_hosts">get_hosts</a> or <a href="#get_selected">get_selected</a>)
-it too exposes some functions to help plug-in developers Interface with RSPET.</p>
-<h3 id="trash">trash</h3>
-<p>Desc : Gracefully delete host.</p>
-<p>Args : -</p>
-<h3 id="purge">purge</h3>
-<p>Desc : Delete host not so gracefully.</p>
-<p>Args : -</p>
-<h3 id="send">send</h3>
-<p>Desc : Send message to host</p>
-<p>Args : msg(string)</p>
-<h3 id="recv">recv</h3>
-<p>Desc : Receive from host</p>
-<p>Args : size (int)</p>
+acquired (through either get_hosts or get_selected it too exposes some functions
+to help plug-in developers Interface with RSPET.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Arguments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trash</td>
+<td>Gracefully delete host.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>purge</td>
+<td>Delete host not so gracefully.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>send</td>
+<td>Send message to host.</td>
+<td>msg(string)</td>
+</tr>
+<tr>
+<td>recv</td>
+<td>Receive from host.</td>
+<td>size (int)</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
