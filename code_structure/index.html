@@ -104,6 +104,16 @@
             
                 <li class="toctree-l3"><a href="#code-structure-overview">Code Structure Overview</a></li>
                 
+                    <li><a class="toctree-l4" href="#rspets-server-module">RSPET's Server Module</a></li>
+                
+                    <li><a class="toctree-l4" href="#console">Console</a></li>
+                
+                    <li><a class="toctree-l4" href="#server">Server</a></li>
+                
+                    <li><a class="toctree-l4" href="#host">Host</a></li>
+                
+                    <li><a class="toctree-l4" href="#rspets-client-module">RSPET's Client Module</a></li>
+                
             
             </ul>
         
@@ -113,6 +123,13 @@
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../dev/">Developing Plug-ins</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../contribute/">Contributing</a>
         
     </li>
 <li>
@@ -157,6 +174,295 @@
             <div class="section">
               
                 <h1 id="code-structure-overview">Code Structure Overview</h1>
+<h2 id="rspets-server-module">RSPET's Server Module</h2>
+<p>The server module consists of three classes :</p>
+<ul>
+<li><a href="#console">Console</a></li>
+<li><a href="#server">Server</a></li>
+<li><a href="#host">Host</a></li>
+</ul>
+<h2 id="console">Console</h2>
+<p>The Console class implements the module's Command Line Interface (CLI) and acts
+as an interface between the user and the Server class.</p>
+<p>Class Attributes Table</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prompt</td>
+<td><strong>String</strong>. The command prompt displayed to the user.</td>
+</tr>
+<tr>
+<td>states</td>
+<td><strong>Dictionary</strong>. Matching state transition strings to the functions carrying out the transition.</td>
+</tr>
+<tr>
+<td>state</td>
+<td><strong>String</strong>. The state module's CLI is currently in.</td>
+</tr>
+<tr>
+<td>quit_signal</td>
+<td><strong>Boolean</strong>. The signal to quit the CLI (and the module itself).</td>
+</tr>
+</tbody>
+</table>
+<p>Instance Attributes Table</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td><strong>Server</strong>. Instance of Server class.</td>
+</tr>
+</tbody>
+</table>
+<p>Class Functions Table</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__init__</td>
+<td>Start server and initialize states.</td>
+</tr>
+<tr>
+<td>trash</td>
+<td>Delete Console.</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>Main CLI loop. Handles user input.</td>
+</tr>
+<tr>
+<td>_basic</td>
+<td>State transition to "basic" state.</td>
+</tr>
+<tr>
+<td>_connected</td>
+<td>State transition to "connected" state.</td>
+</tr>
+<tr>
+<td>_multiple</td>
+<td>State transition to "multiple" state.</td>
+</tr>
+<tr>
+<td>_all</td>
+<td>Interface of _multiple.</td>
+</tr>
+<tr>
+<td>_logo</td>
+<td>Print logo and Authorship/License.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="server">Server</h2>
+<p>The server class implements the main back-end of the module, managing the server
+socket, client selections and Plug-ins.</p>
+<p>Instance Attributes Table</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ip</td>
+<td><strong>String</strong>. The IP Address provided to the module's socket.</td>
+</tr>
+<tr>
+<td>port</td>
+<td><strong>String</strong>. The port provided to the module's socket.</td>
+</tr>
+<tr>
+<td>sock</td>
+<td><strong>Socket</strong>. The module's socket.</td>
+</tr>
+<tr>
+<td>hosts</td>
+<td><strong>List</strong>. All clients currently connected to the server.</td>
+</tr>
+<tr>
+<td>selected</td>
+<td><strong>List</strong>. All clients selected in the current state.</td>
+</tr>
+<tr>
+<td>plugins</td>
+<td><strong>List</strong>. All Plug-ins currently loaded.</td>
+</tr>
+<tr>
+<td>config</td>
+<td><strong>Dictionary</strong>. Read from the config.json file.</td>
+</tr>
+</tbody>
+</table>
+<p>Class Functions Table</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__init__</td>
+<td>Initializes attributes, loads Plug-ins and starts listening on socket.</td>
+</tr>
+<tr>
+<td>trash</td>
+<td>Safely closes all sockets.</td>
+</tr>
+<tr>
+<td>_log</td>
+<td>Log event to file.</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>Main server loop for accepting connections. Execute on separate thread.</td>
+</tr>
+<tr>
+<td>select</td>
+<td>Selects given host(s) based on ids.</td>
+</tr>
+<tr>
+<td>get_selected</td>
+<td>Interface function. Return selected hosts.</td>
+</tr>
+<tr>
+<td>get_hosts</td>
+<td>Interface function. Return all hosts.</td>
+</tr>
+<tr>
+<td>execute</td>
+<td>Execute a command on all selected clients.</td>
+</tr>
+<tr>
+<td>help</td>
+<td>Print all the commands available in the current interface allong with their docsting.</td>
+</tr>
+<tr>
+<td>clean</td>
+<td>Remove hosts tagged for deletion and unselect all selected hosts.</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>Interface function. Raise a Quit signal.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="host">Host</h2>
+<p>Each Instance of the Host Class represents a connected client.</p>
+<p>Class Attributes Table</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command_dict</td>
+<td><strong>Dictionary</strong>. Translates command strings with serialized client commands.</td>
+</tr>
+</tbody>
+</table>
+<p>Instance Attributes Table</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deleteme</td>
+<td><strong>Boolean</strong>. Flag marking Instance for deletion.</td>
+</tr>
+<tr>
+<td>sock</td>
+<td><strong>Socket</strong>. The socket the client is bound to.</td>
+</tr>
+<tr>
+<td>ip</td>
+<td><strong>String</strong>. Client's IP Address.</td>
+</tr>
+<tr>
+<td>port</td>
+<td><strong>String</strong>. Client's port.</td>
+</tr>
+<tr>
+<td>version</td>
+<td><strong>String</strong>. Version of the RSPET module runing on client.</td>
+</tr>
+<tr>
+<td>type</td>
+<td><strong>String</strong>. Type of the RSPET module runing on client.</td>
+</tr>
+</tbody>
+</table>
+<p>Class Functions Table</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__init__</td>
+<td>Accept the connection and initialize variables.</td>
+</tr>
+<tr>
+<td>trash</td>
+<td>Gracefully delete host.</td>
+</tr>
+<tr>
+<td>purge</td>
+<td>Delete host not so gracefully.</td>
+</tr>
+<tr>
+<td>__eq__</td>
+<td>Check weather two sockets are the same socket.</td>
+</tr>
+<tr>
+<td>send</td>
+<td>Send message to client.</td>
+</tr>
+<tr>
+<td>recv</td>
+<td>Receive message from client.</td>
+</tr>
+<tr>
+<td>_enc</td>
+<td>Obfuscate message (before sending).</td>
+</tr>
+<tr>
+<td>_dec</td>
+<td>Deobfuscate message (after receiving).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rspets-client-module">RSPET's Client Module</h2>
+<p>No content yet. Will update soon.</p>
               
             </div>
           </div>

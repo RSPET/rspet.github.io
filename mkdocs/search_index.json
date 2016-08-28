@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to RSPET's Documentation!\n\n\nRSPET\n (Reverse Shell and Post Exploitation Tool) is a Python based reverse shell\nequipped with functionalities that assist in a post exploitation scenario.\n\n\nGeneral\n\n\n\n\nGoals Overview\n\n\nFrequently Asked Questions\n\n\n\n\nUser Documentation\n\n\nThese documents are mainly interesting to people seeking to use RSPET as-is.\n\n\n\n\nDeployment\n\n\nCLI Commands\n\n\nPlug-ins\n\n\n\n\nDeveloper Documentation\n\n\nThese documents should be of interest to those looking into contributing to\nRSPET and/or developing plug-ins.\n\n\n\n\nExecution Model\n\n\nCode Structure Overview\n\n\nDeveloping Plug-ins", 
+            "text": "Welcome to RSPET's Documentation!\n\n\n\n\n\n\n\n\n\n\n\n\nRSPET\n (Reverse Shell and Post Exploitation Tool) is a Python based reverse shell\nequipped with functionalities that assist in a post exploitation scenario.\n\n\nGeneral\n\n\n\n\nGoals Overview\n\n\nFrequently Asked Questions\n\n\n\n\nUser Documentation\n\n\nThese documents are mainly interesting to people seeking to use RSPET as-is.\n\n\n\n\nDeployment\n\n\nCLI Commands\n\n\nPlug-ins\n\n\n\n\nDeveloper Documentation\n\n\nThese documents should be of interest to those looking into contributing to\nRSPET and/or developing plug-ins.\n\n\n\n\nExecution Model\n\n\nCode Structure Overview\n\n\nDeveloping Plug-ins", 
             "title": "Home"
         }, 
         {
@@ -27,7 +27,7 @@
         }, 
         {
             "location": "/goals/", 
-            "text": "Goals Overview\n\n\n\n\nGoals\n\n\nTodo\n\n\n\n\nGoals\n\n\nIn the short-term goals, it's planned for both server and client to have a\nplug-in system implemented.\n\n\nIn the long-term goals, a comprehensive guide has to be created about plug-in\ncreation so third party plug-ins can easily be created without internal knowledge\nof RSPET's design. Along with that a set of rules has to be developed for 3rd\nparty plug-ins to be officially endorsed, so that information about plug-ins can\nbe centralized.\n\n\nIn between, bugs and existing design flaws along side feature requests have to be\ndealt with.\n\n\nTodo\n\n\n\n\nFix logic bug where if a dirrect command's to Host OS execution is perpetual the Server deadlocks\n\n\nAdd client update mechanism (being worked on)\n\n\nAdd UDP Reflection functionality (already in the workings)\n\n\nProvide more settings via config file\n\n\nRe-introduce multythreading when handling multiple hosts.\n\n\nMake commands available with 'Tab' automaticly generated based on loaded plugins.\n\n\nFix logical bug when deleting a client. (Client still shows up on List_Hosts)\n\n\nCreate comprehensive plug-in creation guide.", 
+            "text": "Goals Overview\n\n\n\n\nGoals\n\n\nTodo\n\n\n\n\nGoals\n\n\nIn the short-term goals, it's planned for both server and client to have a\nplug-in system implemented.\n\n\nIn the long-term goals, a comprehensive guide has to be created about plug-in\ncreation so third party plug-ins can easily be created without internal knowledge\nof RSPET's design. Along with that a set of rules has to be developed for 3rd\nparty plug-ins to be officially endorsed, so that information about plug-ins can\nbe centralized.\n\n\nIn between, bugs and existing design flaws along side feature requests have to be\ndealt with.\n\n\nTodo\n\n\n\n\nFix logic bug where if a direct command's to Host OS execution is perpetual the Server deadlocks\n\n\nAdd client update mechanism\n\n\nAdd UDP Reflection functionality (already in the workings)\n\n\nProvide more settings via config file\n\n\nRe-introduce multythreading when handling multiple hosts.\n\n\nMake commands available with 'Tab' automaticly generated based on loaded plugins.\n\n\nFix logical bug when deleting a client. (Client still shows up on List_Hosts)\n\n\nCreate comprehensive plug-in creation guide.", 
             "title": "Goals"
         }, 
         {
@@ -42,7 +42,7 @@
         }, 
         {
             "location": "/goals/#todo", 
-            "text": "Fix logic bug where if a dirrect command's to Host OS execution is perpetual the Server deadlocks  Add client update mechanism (being worked on)  Add UDP Reflection functionality (already in the workings)  Provide more settings via config file  Re-introduce multythreading when handling multiple hosts.  Make commands available with 'Tab' automaticly generated based on loaded plugins.  Fix logical bug when deleting a client. (Client still shows up on List_Hosts)  Create comprehensive plug-in creation guide.", 
+            "text": "Fix logic bug where if a direct command's to Host OS execution is perpetual the Server deadlocks  Add client update mechanism  Add UDP Reflection functionality (already in the workings)  Provide more settings via config file  Re-introduce multythreading when handling multiple hosts.  Make commands available with 'Tab' automaticly generated based on loaded plugins.  Fix logical bug when deleting a client. (Client still shows up on List_Hosts)  Create comprehensive plug-in creation guide.", 
             "title": "Todo"
         }, 
         {
@@ -207,13 +207,38 @@
         }, 
         {
             "location": "/code_structure/", 
-            "text": "Code Structure Overview", 
+            "text": "Code Structure Overview\n\n\nRSPET's Server Module\n\n\nThe server module consists of three classes :\n\n\n\n\nConsole\n\n\nServer\n\n\nHost\n\n\n\n\nConsole\n\n\nThe Console class implements the module's Command Line Interface (CLI) and acts\nas an interface between the user and the Server class.\n\n\nClass Attributes Table\n\n\n\n\n\n\n\n\nAttribute Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nprompt\n\n\nString\n. The command prompt displayed to the user.\n\n\n\n\n\n\nstates\n\n\nDictionary\n. Matching state transition strings to the functions carrying out the transition.\n\n\n\n\n\n\nstate\n\n\nString\n. The state module's CLI is currently in.\n\n\n\n\n\n\nquit_signal\n\n\nBoolean\n. The signal to quit the CLI (and the module itself).\n\n\n\n\n\n\n\n\nInstance Attributes Table\n\n\n\n\n\n\n\n\nAttribute Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nserver\n\n\nServer\n. Instance of Server class.\n\n\n\n\n\n\n\n\nClass Functions Table\n\n\n\n\n\n\n\n\nFunction Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n__init__\n\n\nStart server and initialize states.\n\n\n\n\n\n\ntrash\n\n\nDelete Console.\n\n\n\n\n\n\nloop\n\n\nMain CLI loop. Handles user input.\n\n\n\n\n\n\n_basic\n\n\nState transition to \"basic\" state.\n\n\n\n\n\n\n_connected\n\n\nState transition to \"connected\" state.\n\n\n\n\n\n\n_multiple\n\n\nState transition to \"multiple\" state.\n\n\n\n\n\n\n_all\n\n\nInterface of _multiple.\n\n\n\n\n\n\n_logo\n\n\nPrint logo and Authorship/License.\n\n\n\n\n\n\n\n\nServer\n\n\nThe server class implements the main back-end of the module, managing the server\nsocket, client selections and Plug-ins.\n\n\nInstance Attributes Table\n\n\n\n\n\n\n\n\nAttribute Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nip\n\n\nString\n. The IP Address provided to the module's socket.\n\n\n\n\n\n\nport\n\n\nString\n. The port provided to the module's socket.\n\n\n\n\n\n\nsock\n\n\nSocket\n. The module's socket.\n\n\n\n\n\n\nhosts\n\n\nList\n. All clients currently connected to the server.\n\n\n\n\n\n\nselected\n\n\nList\n. All clients selected in the current state.\n\n\n\n\n\n\nplugins\n\n\nList\n. All Plug-ins currently loaded.\n\n\n\n\n\n\nconfig\n\n\nDictionary\n. Read from the config.json file.\n\n\n\n\n\n\n\n\nClass Functions Table\n\n\n\n\n\n\n\n\nFunction Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n__init__\n\n\nInitializes attributes, loads Plug-ins and starts listening on socket.\n\n\n\n\n\n\ntrash\n\n\nSafely closes all sockets.\n\n\n\n\n\n\n_log\n\n\nLog event to file.\n\n\n\n\n\n\nloop\n\n\nMain server loop for accepting connections. Execute on separate thread.\n\n\n\n\n\n\nselect\n\n\nSelects given host(s) based on ids.\n\n\n\n\n\n\nget_selected\n\n\nInterface function. Return selected hosts.\n\n\n\n\n\n\nget_hosts\n\n\nInterface function. Return all hosts.\n\n\n\n\n\n\nexecute\n\n\nExecute a command on all selected clients.\n\n\n\n\n\n\nhelp\n\n\nPrint all the commands available in the current interface allong with their docsting.\n\n\n\n\n\n\nclean\n\n\nRemove hosts tagged for deletion and unselect all selected hosts.\n\n\n\n\n\n\nquit\n\n\nInterface function. Raise a Quit signal.\n\n\n\n\n\n\n\n\nHost\n\n\nEach Instance of the Host Class represents a connected client.\n\n\nClass Attributes Table\n\n\n\n\n\n\n\n\nAttribute Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncommand_dict\n\n\nDictionary\n. Translates command strings with serialized client commands.\n\n\n\n\n\n\n\n\nInstance Attributes Table\n\n\n\n\n\n\n\n\nAttribute Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndeleteme\n\n\nBoolean\n. Flag marking Instance for deletion.\n\n\n\n\n\n\nsock\n\n\nSocket\n. The socket the client is bound to.\n\n\n\n\n\n\nip\n\n\nString\n. Client's IP Address.\n\n\n\n\n\n\nport\n\n\nString\n. Client's port.\n\n\n\n\n\n\nversion\n\n\nString\n. Version of the RSPET module runing on client.\n\n\n\n\n\n\ntype\n\n\nString\n. Type of the RSPET module runing on client.\n\n\n\n\n\n\n\n\nClass Functions Table\n\n\n\n\n\n\n\n\nFunction Name\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n__init__\n\n\nAccept the connection and initialize variables.\n\n\n\n\n\n\ntrash\n\n\nGracefully delete host.\n\n\n\n\n\n\npurge\n\n\nDelete host not so gracefully.\n\n\n\n\n\n\n__eq__\n\n\nCheck weather two sockets are the same socket.\n\n\n\n\n\n\nsend\n\n\nSend message to client.\n\n\n\n\n\n\nrecv\n\n\nReceive message from client.\n\n\n\n\n\n\n_enc\n\n\nObfuscate message (before sending).\n\n\n\n\n\n\n_dec\n\n\nDeobfuscate message (after receiving).\n\n\n\n\n\n\n\n\nRSPET's Client Module\n\n\nNo content yet. Will update soon.", 
             "title": "Code Structure"
         }, 
         {
             "location": "/code_structure/#code-structure-overview", 
             "text": "", 
             "title": "Code Structure Overview"
+        }, 
+        {
+            "location": "/code_structure/#rspets-server-module", 
+            "text": "The server module consists of three classes :   Console  Server  Host", 
+            "title": "RSPET's Server Module"
+        }, 
+        {
+            "location": "/code_structure/#console", 
+            "text": "The Console class implements the module's Command Line Interface (CLI) and acts\nas an interface between the user and the Server class.  Class Attributes Table     Attribute Name  Description      prompt  String . The command prompt displayed to the user.    states  Dictionary . Matching state transition strings to the functions carrying out the transition.    state  String . The state module's CLI is currently in.    quit_signal  Boolean . The signal to quit the CLI (and the module itself).     Instance Attributes Table     Attribute Name  Description      server  Server . Instance of Server class.     Class Functions Table     Function Name  Description      __init__  Start server and initialize states.    trash  Delete Console.    loop  Main CLI loop. Handles user input.    _basic  State transition to \"basic\" state.    _connected  State transition to \"connected\" state.    _multiple  State transition to \"multiple\" state.    _all  Interface of _multiple.    _logo  Print logo and Authorship/License.", 
+            "title": "Console"
+        }, 
+        {
+            "location": "/code_structure/#server", 
+            "text": "The server class implements the main back-end of the module, managing the server\nsocket, client selections and Plug-ins.  Instance Attributes Table     Attribute Name  Description      ip  String . The IP Address provided to the module's socket.    port  String . The port provided to the module's socket.    sock  Socket . The module's socket.    hosts  List . All clients currently connected to the server.    selected  List . All clients selected in the current state.    plugins  List . All Plug-ins currently loaded.    config  Dictionary . Read from the config.json file.     Class Functions Table     Function Name  Description      __init__  Initializes attributes, loads Plug-ins and starts listening on socket.    trash  Safely closes all sockets.    _log  Log event to file.    loop  Main server loop for accepting connections. Execute on separate thread.    select  Selects given host(s) based on ids.    get_selected  Interface function. Return selected hosts.    get_hosts  Interface function. Return all hosts.    execute  Execute a command on all selected clients.    help  Print all the commands available in the current interface allong with their docsting.    clean  Remove hosts tagged for deletion and unselect all selected hosts.    quit  Interface function. Raise a Quit signal.", 
+            "title": "Server"
+        }, 
+        {
+            "location": "/code_structure/#host", 
+            "text": "Each Instance of the Host Class represents a connected client.  Class Attributes Table     Attribute Name  Description      command_dict  Dictionary . Translates command strings with serialized client commands.     Instance Attributes Table     Attribute Name  Description      deleteme  Boolean . Flag marking Instance for deletion.    sock  Socket . The socket the client is bound to.    ip  String . Client's IP Address.    port  String . Client's port.    version  String . Version of the RSPET module runing on client.    type  String . Type of the RSPET module runing on client.     Class Functions Table     Function Name  Description      __init__  Accept the connection and initialize variables.    trash  Gracefully delete host.    purge  Delete host not so gracefully.    __eq__  Check weather two sockets are the same socket.    send  Send message to client.    recv  Receive message from client.    _enc  Obfuscate message (before sending).    _dec  Deobfuscate message (after receiving).", 
+            "title": "Host"
+        }, 
+        {
+            "location": "/code_structure/#rspets-client-module", 
+            "text": "No content yet. Will update soon.", 
+            "title": "RSPET's Client Module"
         }, 
         {
             "location": "/dev/", 
@@ -299,6 +324,36 @@
             "location": "/dev/#recv", 
             "text": "Desc : Receive from host  Args : size (int)", 
             "title": "recv"
+        }, 
+        {
+            "location": "/contribute/", 
+            "text": "Contributing to RSPET\n\n\nThis doc aims to expand on the ways someone can contribute to the project.\n\n\nPlug-in Development\n\n\nPlug-ins provide new functionality to RSPET thus making it useful to a wider range\nof users. So by developing a Plug-in, you help expand the project's user-base\nand also assist users.\n\n\nSo if you have developed a a Plug-in for RSPET feel free to open an issue on the\nproject's \nrepository\n with a title following\nthe scheme : \n[plug-in][submission]\nPlug-in name\n describing your Plug-in's\nfunctionality and pointing to the repository it's hosted.\n\n\nFor more information on how to develop a Plug-in see \nDeveloping Plug-ins\n\n\nTest and report bugs\n\n\nOccasionally, a bug slips through. It might be a typo in help text or an edge case\nwe missed. Since the project doesn't have the people (at the moment) to carry out\ncoordinated QA, it's not impossible to happen. So if you spot a bug in RSPET please\nreport it by opening an issue on the project's\n\nrepository\n with a title following the scheme :\n\n[bug][\nmodule\n]\nbrief description\n describing the steps that led to the bug's\nappearance so we can recreate it and find its root.\n\n\nContribute mechanism design and/or code\n\n\nAs you can see at the project's \nTODO\n there are a couple design\nflaws that have to be dealt with. Also there are expansion opportunities that\nrequire that new mechanisms are developed. So if you have a suggestion on how to\nsolve one of the design flows or how to implement one of the aforementioned\nmechanisms feel free to open an issue on the project's\n\nrepository\n with a title following the scheme :\n\n[TODO]\ndescription of problem solved\n describing the design of the mechanism\nor the fix you are suggesting.\n\n\nIf you have already developed the mechanism or a fix (either as a proof of concept\nor fully developed) feel free to open a pull request on the project's\n\nrepository\n with a title following the scheme :\n\n[TODO]\ndescription of problem solved\n.\n\n\nDocumentation\n\n\nIf you have any suggestions on expanding this documentation feel free to open an\nissue to the \ndocumentation's repository\n.", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/contribute/#contributing-to-rspet", 
+            "text": "This doc aims to expand on the ways someone can contribute to the project.", 
+            "title": "Contributing to RSPET"
+        }, 
+        {
+            "location": "/contribute/#plug-in-development", 
+            "text": "Plug-ins provide new functionality to RSPET thus making it useful to a wider range\nof users. So by developing a Plug-in, you help expand the project's user-base\nand also assist users.  So if you have developed a a Plug-in for RSPET feel free to open an issue on the\nproject's  repository  with a title following\nthe scheme :  [plug-in][submission] Plug-in name  describing your Plug-in's\nfunctionality and pointing to the repository it's hosted.  For more information on how to develop a Plug-in see  Developing Plug-ins", 
+            "title": "Plug-in Development"
+        }, 
+        {
+            "location": "/contribute/#test-and-report-bugs", 
+            "text": "Occasionally, a bug slips through. It might be a typo in help text or an edge case\nwe missed. Since the project doesn't have the people (at the moment) to carry out\ncoordinated QA, it's not impossible to happen. So if you spot a bug in RSPET please\nreport it by opening an issue on the project's repository  with a title following the scheme : [bug][ module ] brief description  describing the steps that led to the bug's\nappearance so we can recreate it and find its root.", 
+            "title": "Test and report bugs"
+        }, 
+        {
+            "location": "/contribute/#contribute-mechanism-design-andor-code", 
+            "text": "As you can see at the project's  TODO  there are a couple design\nflaws that have to be dealt with. Also there are expansion opportunities that\nrequire that new mechanisms are developed. So if you have a suggestion on how to\nsolve one of the design flows or how to implement one of the aforementioned\nmechanisms feel free to open an issue on the project's repository  with a title following the scheme : [TODO] description of problem solved  describing the design of the mechanism\nor the fix you are suggesting.  If you have already developed the mechanism or a fix (either as a proof of concept\nor fully developed) feel free to open a pull request on the project's repository  with a title following the scheme : [TODO] description of problem solved .", 
+            "title": "Contribute mechanism design and/or code"
+        }, 
+        {
+            "location": "/contribute/#documentation", 
+            "text": "If you have any suggestions on expanding this documentation feel free to open an\nissue to the  documentation's repository .", 
+            "title": "Documentation"
         }, 
         {
             "location": "/faq/", 
