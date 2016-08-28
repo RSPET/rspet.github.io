@@ -62,7 +62,7 @@
         }, 
         {
             "location": "/cli/", 
-            "text": "CLI Commands\n\n\nRSPET's server module provides a Command Line Interface (CLI) to its user. This\npart aims to introduce RSPET's CLI and detail the available commands.\n\n\nThe commands listed bellow are part of the \nessentials\n, the\n\nfiles\n and the \nudp\n plug-ins.\n\n\nFeel free to ignore the \"State(s)\" and the \"Transition\" fields as the will rarely\nbe of use to an end user and are here purely to assist contributors and Plug-in\ndevelopers.\n\n\nessentials\n\n\nhelp\n\n\nDesc : List commands available in current state or provide syntax for a command.\n\n\nSyntax : help [command]\n\n\nState(s) : \"basic\", \"connected\", \"selected\"\n\n\nTransition : None\n\n\nChoose_Host\n\n\nDesc : Select a single host.\n\n\nSyntax : Choose_Host \n\n\nState(s) : \"basic\"\n\n\nTransition : \"connected\"\n\n\nSelect\n\n\nDesc : Select multiple hosts.\n\n\nSyntax : Select \n\n\nState(s) : \"basic\"\n\n\nTransition : \"multiple\"\n\n\nALL\n\n\nDesc : Select all hosts.\n\n\nSyntax : ALL\n\n\nState(s) : \"basic\"\n\n\nTransition : \"all\"\n\n\nQuit\n\n\nDesc : Quit the CLI and terminate the server.\n\n\nSyntax : Quit\n\n\nState(s) : \"basic\"\n\n\nTransition : None\n\n\nExecute\n\n\nDesc : Execute system command on client.\n\n\nSyntax : Execute \n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nClose_Connection\n\n\nDesc : Kick the selected Client(s).\n\n\nSyntax : Close_Connection\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : \"basic\"\n\n\nList_Hosts\n\n\nDesc : List all connected hosts.\n\n\nSyntax : List_Hosts\n\n\nState(s) : \"basic\"\n\n\nTransition : None\n\n\nList_Sel_Hosts\n\n\nDesc : List selected hosts.\n\n\nSyntax : List_Sel_Hosts\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nExit\n\n\nDesc : Unselect all hosts.\n\n\nSyntax : Exit\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : \"basic\"\n\n\nKILL\n\n\nDesc : Stop client(s) from doing the current task.\n\n\nSyntax : KILL\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nfiles\n\n\nPull_File\n\n\nDesc : Pull a regular text file from the client.\n\n\nSyntax : Pull_File \n [local_file]\n\n\nState(s) : \"connected\"\n\n\nTransition : None\n\n\nPull_Binary\n\n\nDesc : Pull a binary file from the client.\n\n\nSyntax : Pull_Binary \n [local_bin]\n\n\nState(s) : \"connected\"\n\n\nTransition : None\n\n\nMake_File\n\n\nDesc : Send a regular text file to the host(s).\n\n\nSyntax : Make_File \n [remote_file]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nMake_Binary\n\n\nDesc : Send a binary file to the host(s).\n\n\nSyntax : Make_Binary \n [remote_bin]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nudp\n\n\nUDP_Flood\n\n\nDesc : Flood target machine with UDP packets.\n\n\nSyntax : UDP_Flood \n \n [payload]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None\n\n\nUDP_Spoof\n\n\nDesc : Flood target machine with UDP packets via spoofed ip \n port.\n\n\nSyntax : UDP_Spoof \n \n \n \n [payload]\n\n\nState(s) : \"connected\", \"multiple\"\n\n\nTransition : None", 
+            "text": "CLI Commands\n\n\nRSPET's server module provides a Command Line Interface (CLI) to its user. This\npart aims to introduce RSPET's CLI and detail the available commands.\n\n\nThe commands listed bellow are part of the \nessentials\n, the\n\nfiles\n and the \nudp\n plug-ins.\n\n\nFeel free to ignore the \"State(s)\" and the \"Transition\" fields as the will rarely\nbe of use to an end user and are here purely to assist contributors and Plug-in\ndevelopers.\n\n\nessentials\n\n\n\n\n\n\n\n\nCommand\n\n\nDescription\n\n\nSyntax\n\n\nState(s)\n\n\nTransition\n\n\n\n\n\n\n\n\n\n\nhelp\n\n\nList commands available in current state or provide syntax for a command.\n\n\nhelp [command]\n\n\n\"basic\", \"connected\", \"selected\"\n\n\nNone\n\n\n\n\n\n\nChoose_Host\n\n\nSelect a single host.\n\n\nChoose_Host \n\n\n\"basic\"\n\n\n\"connected\"\n\n\n\n\n\n\nSelect\n\n\nSelect multiple hosts.\n\n\nSelect \n\n\n\"basic\"\n\n\n\"multiple\"\n\n\n\n\n\n\nALL\n\n\nSelect all hosts.\n\n\nALL\n\n\n\"basic\"\n\n\n\"all\"\n\n\n\n\n\n\nQuit\n\n\nQuit the CLI and terminate the server.\n\n\nQuit\n\n\n\"basic\"\n\n\nNone\n\n\n\n\n\n\nExecute\n\n\nExecute system command on client.\n\n\nExecute \n\n\n\"connected\", \"multiple\"\n\n\nNone\n\n\n\n\n\n\nClose_Connection\n\n\nKick the selected Client(s).\n\n\nClose_Connection\n\n\n\"connected\", \"multiple\"\n\n\n\"basic\"\n\n\n\n\n\n\nList_Hosts\n\n\nList all connected hosts.\n\n\nList_Hosts\n\n\n\"basic\"\n\n\nNone\n\n\n\n\n\n\nList_Sel_Hosts\n\n\nList selected hosts.\n\n\nList_Sel_Hosts\n\n\n\"connected\", \"multiple\"\n\n\nNone\n\n\n\n\n\n\nExit\n\n\nUnselect all hosts.\n\n\nExit\n\n\n\"connected\", \"multiple\"\n\n\n\"basic\"\n\n\n\n\n\n\nKILL\n\n\nStop client(s) from doing the current task.\n\n\nKILL\n\n\n\"connected\", \"multiple\"\n\n\nNone\n\n\n\n\n\n\n\n\nfiles\n\n\n\n\n\n\n\n\nCommand\n\n\nDescription\n\n\nSyntax\n\n\nState(s)\n\n\nTransition\n\n\n\n\n\n\n\n\n\n\nPull_File\n\n\nPull a regular text file from the client.\n\n\nPull_File \n [local_file]\n\n\n\"connected\"\n\n\nNone\n\n\n\n\n\n\nPull_Binary\n\n\nPull a binary file from the client.\n\n\nPull_Binary \n [local_bin]\n\n\n\"connected\"\n\n\nNone\n\n\n\n\n\n\nMake_File\n\n\nSend a regular text file to the host(s).\n\n\nMake_File \n [remote_file]\n\n\n\"connected\", \"multiple\"\n\n\nNone\n\n\n\n\n\n\nMake_Binary\n\n\nSend a binary file to the host(s).\n\n\nMake_Binary \n [remote_bin]\n\n\n\"connected\", \"multiple\"\n\n\nNone\n\n\n\n\n\n\n\n\nudp\n\n\n\n\n\n\n\n\nCommand\n\n\nDescription\n\n\nSyntax\n\n\nState(s)\n\n\nTransition\n\n\n\n\n\n\n\n\n\n\nUDP_Flood\n\n\nFlood target machine with UDP packets.\n\n\nUDP_Flood \n \n [payload]\n\n\n\"connected\", \"multiple\"\n\n\nNone\n\n\n\n\n\n\nUDP_Spoof\n\n\nFlood target machine with UDP packets via spoofed ip \n port.\n\n\nUDP_Spoof \n \n \n \n [payload]\n\n\n\"connected\", \"multiple\"\n\n\nNone", 
             "title": "CLI Commands"
         }, 
         {
@@ -72,103 +72,18 @@
         }, 
         {
             "location": "/cli/#essentials", 
-            "text": "", 
+            "text": "Command  Description  Syntax  State(s)  Transition      help  List commands available in current state or provide syntax for a command.  help [command]  \"basic\", \"connected\", \"selected\"  None    Choose_Host  Select a single host.  Choose_Host   \"basic\"  \"connected\"    Select  Select multiple hosts.  Select   \"basic\"  \"multiple\"    ALL  Select all hosts.  ALL  \"basic\"  \"all\"    Quit  Quit the CLI and terminate the server.  Quit  \"basic\"  None    Execute  Execute system command on client.  Execute   \"connected\", \"multiple\"  None    Close_Connection  Kick the selected Client(s).  Close_Connection  \"connected\", \"multiple\"  \"basic\"    List_Hosts  List all connected hosts.  List_Hosts  \"basic\"  None    List_Sel_Hosts  List selected hosts.  List_Sel_Hosts  \"connected\", \"multiple\"  None    Exit  Unselect all hosts.  Exit  \"connected\", \"multiple\"  \"basic\"    KILL  Stop client(s) from doing the current task.  KILL  \"connected\", \"multiple\"  None", 
             "title": "essentials"
         }, 
         {
-            "location": "/cli/#help", 
-            "text": "Desc : List commands available in current state or provide syntax for a command.  Syntax : help [command]  State(s) : \"basic\", \"connected\", \"selected\"  Transition : None", 
-            "title": "help"
-        }, 
-        {
-            "location": "/cli/#choose_host", 
-            "text": "Desc : Select a single host.  Syntax : Choose_Host   State(s) : \"basic\"  Transition : \"connected\"", 
-            "title": "Choose_Host"
-        }, 
-        {
-            "location": "/cli/#select", 
-            "text": "Desc : Select multiple hosts.  Syntax : Select   State(s) : \"basic\"  Transition : \"multiple\"", 
-            "title": "Select"
-        }, 
-        {
-            "location": "/cli/#all", 
-            "text": "Desc : Select all hosts.  Syntax : ALL  State(s) : \"basic\"  Transition : \"all\"", 
-            "title": "ALL"
-        }, 
-        {
-            "location": "/cli/#quit", 
-            "text": "Desc : Quit the CLI and terminate the server.  Syntax : Quit  State(s) : \"basic\"  Transition : None", 
-            "title": "Quit"
-        }, 
-        {
-            "location": "/cli/#execute", 
-            "text": "Desc : Execute system command on client.  Syntax : Execute   State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "Execute"
-        }, 
-        {
-            "location": "/cli/#close_connection", 
-            "text": "Desc : Kick the selected Client(s).  Syntax : Close_Connection  State(s) : \"connected\", \"multiple\"  Transition : \"basic\"", 
-            "title": "Close_Connection"
-        }, 
-        {
-            "location": "/cli/#list_hosts", 
-            "text": "Desc : List all connected hosts.  Syntax : List_Hosts  State(s) : \"basic\"  Transition : None", 
-            "title": "List_Hosts"
-        }, 
-        {
-            "location": "/cli/#list_sel_hosts", 
-            "text": "Desc : List selected hosts.  Syntax : List_Sel_Hosts  State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "List_Sel_Hosts"
-        }, 
-        {
-            "location": "/cli/#exit", 
-            "text": "Desc : Unselect all hosts.  Syntax : Exit  State(s) : \"connected\", \"multiple\"  Transition : \"basic\"", 
-            "title": "Exit"
-        }, 
-        {
-            "location": "/cli/#kill", 
-            "text": "Desc : Stop client(s) from doing the current task.  Syntax : KILL  State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "KILL"
-        }, 
-        {
             "location": "/cli/#files", 
-            "text": "", 
+            "text": "Command  Description  Syntax  State(s)  Transition      Pull_File  Pull a regular text file from the client.  Pull_File   [local_file]  \"connected\"  None    Pull_Binary  Pull a binary file from the client.  Pull_Binary   [local_bin]  \"connected\"  None    Make_File  Send a regular text file to the host(s).  Make_File   [remote_file]  \"connected\", \"multiple\"  None    Make_Binary  Send a binary file to the host(s).  Make_Binary   [remote_bin]  \"connected\", \"multiple\"  None", 
             "title": "files"
         }, 
         {
-            "location": "/cli/#pull_file", 
-            "text": "Desc : Pull a regular text file from the client.  Syntax : Pull_File   [local_file]  State(s) : \"connected\"  Transition : None", 
-            "title": "Pull_File"
-        }, 
-        {
-            "location": "/cli/#pull_binary", 
-            "text": "Desc : Pull a binary file from the client.  Syntax : Pull_Binary   [local_bin]  State(s) : \"connected\"  Transition : None", 
-            "title": "Pull_Binary"
-        }, 
-        {
-            "location": "/cli/#make_file", 
-            "text": "Desc : Send a regular text file to the host(s).  Syntax : Make_File   [remote_file]  State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "Make_File"
-        }, 
-        {
-            "location": "/cli/#make_binary", 
-            "text": "Desc : Send a binary file to the host(s).  Syntax : Make_Binary   [remote_bin]  State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "Make_Binary"
-        }, 
-        {
             "location": "/cli/#udp", 
-            "text": "", 
+            "text": "Command  Description  Syntax  State(s)  Transition      UDP_Flood  Flood target machine with UDP packets.  UDP_Flood     [payload]  \"connected\", \"multiple\"  None    UDP_Spoof  Flood target machine with UDP packets via spoofed ip   port.  UDP_Spoof         [payload]  \"connected\", \"multiple\"  None", 
             "title": "udp"
-        }, 
-        {
-            "location": "/cli/#udp_flood", 
-            "text": "Desc : Flood target machine with UDP packets.  Syntax : UDP_Flood     [payload]  State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "UDP_Flood"
-        }, 
-        {
-            "location": "/cli/#udp_spoof", 
-            "text": "Desc : Flood target machine with UDP packets via spoofed ip   port.  Syntax : UDP_Spoof         [payload]  State(s) : \"connected\", \"multiple\"  Transition : None", 
-            "title": "UDP_Spoof"
         }, 
         {
             "location": "/plug_ins/", 

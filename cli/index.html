@@ -87,8 +87,6 @@
                 
                     <li><a class="toctree-l4" href="#files">files</a></li>
                 
-                    <li><a class="toctree-l4" href="#make_file">Make_File</a></li>
-                
                     <li><a class="toctree-l4" href="#udp">udp</a></li>
                 
             
@@ -180,93 +178,166 @@ part aims to introduce RSPET's CLI and detail the available commands.</p>
 be of use to an end user and are here purely to assist contributors and Plug-in
 developers.</p>
 <h2 id="essentials">essentials</h2>
-<h3 id="help">help</h3>
-<p>Desc : List commands available in current state or provide syntax for a command.</p>
-<p>Syntax : help [command]</p>
-<p>State(s) : "basic", "connected", "selected"</p>
-<p>Transition : None</p>
-<h3 id="choose_host">Choose_Host</h3>
-<p>Desc : Select a single host.</p>
-<p>Syntax : Choose_Host <host ID></p>
-<p>State(s) : "basic"</p>
-<p>Transition : "connected"</p>
-<h3 id="select">Select</h3>
-<p>Desc : Select multiple hosts.</p>
-<p>Syntax : Select <host ID [host Id] [host ID] ...></p>
-<p>State(s) : "basic"</p>
-<p>Transition : "multiple"</p>
-<h3 id="all">ALL</h3>
-<p>Desc : Select all hosts.</p>
-<p>Syntax : ALL</p>
-<p>State(s) : "basic"</p>
-<p>Transition : "all"</p>
-<h3 id="quit">Quit</h3>
-<p>Desc : Quit the CLI and terminate the server.</p>
-<p>Syntax : Quit</p>
-<p>State(s) : "basic"</p>
-<p>Transition : None</p>
-<h3 id="execute">Execute</h3>
-<p>Desc : Execute system command on client.</p>
-<p>Syntax : Execute <command></p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
-<h3 id="close_connection">Close_Connection</h3>
-<p>Desc : Kick the selected Client(s).</p>
-<p>Syntax : Close_Connection</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : "basic"</p>
-<h3 id="list_hosts">List_Hosts</h3>
-<p>Desc : List all connected hosts.</p>
-<p>Syntax : List_Hosts</p>
-<p>State(s) : "basic"</p>
-<p>Transition : None</p>
-<h3 id="list_sel_hosts">List_Sel_Hosts</h3>
-<p>Desc : List selected hosts.</p>
-<p>Syntax : List_Sel_Hosts</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
-<h3 id="exit">Exit</h3>
-<p>Desc : Unselect all hosts.</p>
-<p>Syntax : Exit</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : "basic"</p>
-<h3 id="kill">KILL</h3>
-<p>Desc : Stop client(s) from doing the current task.</p>
-<p>Syntax : KILL</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Syntax</th>
+<th>State(s)</th>
+<th>Transition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>help</td>
+<td>List commands available in current state or provide syntax for a command.</td>
+<td>help [command]</td>
+<td>"basic", "connected", "selected"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Choose_Host</td>
+<td>Select a single host.</td>
+<td>Choose_Host <host ID></td>
+<td>"basic"</td>
+<td>"connected"</td>
+</tr>
+<tr>
+<td>Select</td>
+<td>Select multiple hosts.</td>
+<td>Select <host ID [host Id] [host ID] ...></td>
+<td>"basic"</td>
+<td>"multiple"</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>Select all hosts.</td>
+<td>ALL</td>
+<td>"basic"</td>
+<td>"all"</td>
+</tr>
+<tr>
+<td>Quit</td>
+<td>Quit the CLI and terminate the server.</td>
+<td>Quit</td>
+<td>"basic"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td>Execute system command on client.</td>
+<td>Execute <command></td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Close_Connection</td>
+<td>Kick the selected Client(s).</td>
+<td>Close_Connection</td>
+<td>"connected", "multiple"</td>
+<td>"basic"</td>
+</tr>
+<tr>
+<td>List_Hosts</td>
+<td>List all connected hosts.</td>
+<td>List_Hosts</td>
+<td>"basic"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>List_Sel_Hosts</td>
+<td>List selected hosts.</td>
+<td>List_Sel_Hosts</td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Exit</td>
+<td>Unselect all hosts.</td>
+<td>Exit</td>
+<td>"connected", "multiple"</td>
+<td>"basic"</td>
+</tr>
+<tr>
+<td>KILL</td>
+<td>Stop client(s) from doing the current task.</td>
+<td>KILL</td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
 <h2 id="files">files</h2>
-<h3 id="pull_file">Pull_File</h3>
-<p>Desc : Pull a regular text file from the client.</p>
-<p>Syntax : Pull_File <remote_file> [local_file]</p>
-<p>State(s) : "connected"</p>
-<p>Transition : None</p>
-<h3 id="pull_binary">Pull_Binary</h3>
-<p>Desc : Pull a binary file from the client.</p>
-<p>Syntax : Pull_Binary <remote_bin> [local_bin]</p>
-<p>State(s) : "connected"</p>
-<p>Transition : None</p>
-<h2 id="make_file">Make_File</h2>
-<p>Desc : Send a regular text file to the host(s).</p>
-<p>Syntax : Make_File <local_file> [remote_file]</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
-<h3 id="make_binary">Make_Binary</h3>
-<p>Desc : Send a binary file to the host(s).</p>
-<p>Syntax : Make_Binary <local_bin> [remote_bin]</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Syntax</th>
+<th>State(s)</th>
+<th>Transition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pull_File</td>
+<td>Pull a regular text file from the client.</td>
+<td>Pull_File <remote_file> [local_file]</td>
+<td>"connected"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Pull_Binary</td>
+<td>Pull a binary file from the client.</td>
+<td>Pull_Binary <remote_bin> [local_bin]</td>
+<td>"connected"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Make_File</td>
+<td>Send a regular text file to the host(s).</td>
+<td>Make_File <local_file> [remote_file]</td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Make_Binary</td>
+<td>Send a binary file to the host(s).</td>
+<td>Make_Binary <local_bin> [remote_bin]</td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
 <h2 id="udp">udp</h2>
-<h3 id="udp_flood">UDP_Flood</h3>
-<p>Desc : Flood target machine with UDP packets.</p>
-<p>Syntax : UDP_Flood <target_ip> <target_port> [payload]</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
-<h3 id="udp_spoof">UDP_Spoof</h3>
-<p>Desc : Flood target machine with UDP packets via spoofed ip &amp; port.</p>
-<p>Syntax : UDP_Spoof <target_ip> <target_port> <spoofed_ip> <spoofed_port> [payload]</p>
-<p>State(s) : "connected", "multiple"</p>
-<p>Transition : None</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+<th>Syntax</th>
+<th>State(s)</th>
+<th>Transition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UDP_Flood</td>
+<td>Flood target machine with UDP packets.</td>
+<td>UDP_Flood <target_ip> <target_port> [payload]</td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+<tr>
+<td>UDP_Spoof</td>
+<td>Flood target machine with UDP packets via spoofed ip &amp; port.</td>
+<td>UDP_Spoof <target_ip> <target_port> <spoofed_ip> <spoofed_port> [payload]</td>
+<td>"connected", "multiple"</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
