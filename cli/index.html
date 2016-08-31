@@ -192,77 +192,77 @@ developers.</p>
 <tr>
 <td align="center">help</td>
 <td align="center">List commands available in current state or provide syntax for a command.</td>
-<td align="center"><code>help [command]</code></td>
+<td align="center">help [command]</td>
 <td align="center">"basic", "connected", "selected"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Choose_Host</td>
 <td align="center">Select a single host.</td>
-<td align="center"><code>Choose_Host &lt;host ID&gt;</code></td>
+<td align="center">Choose_Host &lt;host ID></td>
 <td align="center">"basic"</td>
 <td align="center">"connected"</td>
 </tr>
 <tr>
 <td align="center">Select</td>
 <td align="center">Select multiple hosts.</td>
-<td align="center"><code>Select &lt;host ID [host Id] [host ID] ...&gt;</code></td>
+<td align="center">Select &lt;host ID [host Id] [host ID] ...></td>
 <td align="center">"basic"</td>
 <td align="center">"multiple"</td>
 </tr>
 <tr>
 <td align="center">ALL</td>
 <td align="center">Select all hosts.</td>
-<td align="center"><code>ALL</code></td>
+<td align="center">ALL</td>
 <td align="center">"basic"</td>
 <td align="center">"all"</td>
 </tr>
 <tr>
 <td align="center">Quit</td>
 <td align="center">Quit the CLI and terminate the server.</td>
-<td align="center"><code>Quit</code></td>
+<td align="center">Quit</td>
 <td align="center">"basic"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Execute</td>
 <td align="center">Execute system command on client.</td>
-<td align="center"><code>Execute &lt;command&gt;</code></td>
+<td align="center">Execute &lt;command></td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Close_Connection</td>
 <td align="center">Kick the selected Client(s).</td>
-<td align="center"><code>Close_Connection</code></td>
+<td align="center">Close_Connection</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">"basic"</td>
 </tr>
 <tr>
 <td align="center">List_Hosts</td>
 <td align="center">List all connected hosts.</td>
-<td align="center"><code>List_Hosts</code></td>
+<td align="center">List_Hosts</td>
 <td align="center">"basic"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">List_Sel_Hosts</td>
 <td align="center">List selected hosts.</td>
-<td align="center"><code>List_Sel_Hosts</code></td>
+<td align="center">List_Sel_Hosts</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Exit</td>
 <td align="center">Unselect all hosts.</td>
-<td align="center"><code>Exit</code></td>
+<td align="center">Exit</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">"basic"</td>
 </tr>
 <tr>
 <td align="center">KILL</td>
 <td align="center">Stop client(s) from doing the current task.</td>
-<td align="center"><code>KILL</code></td>
+<td align="center">KILL</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
@@ -283,28 +283,28 @@ developers.</p>
 <tr>
 <td align="center">Pull_File</td>
 <td align="center">Pull a regular text file from the client.</td>
-<td align="center"><code>Pull_File &lt;remote_file&gt; [local_file]</code></td>
+<td align="center">Pull_File &lt;remote_file> [local_file]</td>
 <td align="center">"connected"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Pull_Binary</td>
 <td align="center">Pull a binary file from the client.</td>
-<td align="center"><code>Pull_Binary &lt;remote_bin&gt; [local_bin]</code></td>
+<td align="center">Pull_Binary &lt;remote_bin> [local_bin]</td>
 <td align="center">"connected"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Make_File</td>
 <td align="center">Send a regular text file to the host(s).</td>
-<td align="center"><code>Make_File &lt;local_file&gt; [remote_file]</code></td>
+<td align="center">Make_File &lt;local_file> [remote_file]</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Make_Binary</td>
 <td align="center">Send a binary file to the host(s).</td>
-<td align="center"><code>Make_Binary &lt;local_bin&gt; [remote_bin]</code></td>
+<td align="center">Make_Binary &lt;local_bin> [remote_bin]</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
@@ -325,14 +325,14 @@ developers.</p>
 <tr>
 <td align="center">UDP_Flood</td>
 <td align="center">Flood target machine with UDP packets.</td>
-<td align="center"><code>UDP_Flood &lt;target_ip&gt; &lt;target_port&gt; [payload]</code></td>
+<td align="center">UDP_Flood &lt;target_ip> &lt;target_port> [payload]</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">UDP_Spoof</td>
 <td align="center">Flood target machine with UDP packets via spoofed ip &amp; port.</td>
-<td align="center"><code>UDP_Spoof &lt;trgt_ip&gt; &lt;trgt_port&gt; &lt;spoof_ip&gt; &lt;spoof_port&gt; [payload]</code></td>
+<td align="center">UDP_Spoof &lt;traget_ip> &lt;target_port> &lt;spoofed_ip> &lt;spoofed_port> [payload]</td>
 <td align="center">"connected", "multiple"</td>
 <td align="center">None</td>
 </tr>
