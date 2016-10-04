@@ -129,6 +129,20 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../REST_API/">RESTful WebAPI</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../contribute/">Contributing</a>
         
     </li>
@@ -176,7 +190,7 @@
                 <h1 id="developing-plug-ins">Developing Plug-ins</h1>
 <p>This guide aims to provide help to those developing Plug-ins for RSPET. Before
 you start it would be good to use the program a bit (in order to have a level
-of familiarity with it's execution flow) and to have a look at RSPET's
+of familiarity with it&rsquo;s execution flow) and to have a look at RSPET&rsquo;s
 <a href="../execution_model">Execution Model</a> which covers most of the needed background.</p>
 <h2 id="what-it-is">What it is</h2>
 <p>A Plug-in for RSPET is a python file and more specifically a library (meaning it
@@ -203,12 +217,12 @@ is imported).</p>
 <h2 id="going-deeper">Going Deeper</h2>
 <p>Now in order for your plug-in to help a user it has to offer CLI commands. To do
 that, in the class created above create an <strong>init</strong> function. Inside this function
-create a new entry to <code>__server_commands__</code> Dictionary with your command's name
+create a new entry to <code>__server_commands__</code> Dictionary with your command&rsquo;s name
 as an index and an array as a value. Said array should have the function that
-executes the code as it's first value and the state's in which the command should
+executes the code as it&rsquo;s first value and the state&rsquo;s in which the command should
 be available in as the rest. Finally, create a new entry to <code>__cmd_help__</code>
-Dictionary with your command's name as an index and a string containing the
-command's syntax. Let's see how this is done with the core command <code>help</code>:</p>
+Dictionary with your command&rsquo;s name as an index and a string containing the
+command&rsquo;s syntax. Let&rsquo;s see how this is done with the core command <code>help</code>:</p>
 <pre><code class="py">    class Essentials(Plugin):
       &quot;&quot;&quot;
       Class expanding Plugin.
@@ -224,21 +238,31 @@ command's syntax. Let's see how this is done with the core command <code>help</c
         self.__cmd_help__[&quot;help&quot;] = &quot;help [command]&quot;
 
       def help(self, server, args): #Note that all functions should take those arguments.
-        &quot;&quot;&quot;List commands available in current state or provide syntax for a command.&quot;&quot;&quot;
-        #Do stuff to print help
-        return None #Here you return the desired transition. None takes no &quot;&quot; the rest do.
+          &quot;&quot;&quot;&quot;List commands available in current state or provide syntax for a command.&quot;&quot;&quot;
+          ret = [None,0,&quot;&quot;]
+          if len(args) &gt; 1:
+              ret[2] = (&quot;Syntax : %s&quot; % self.__cmd_help__[&quot;help&quot;])
+              ret[1] = 1 #Invalid Syntax Error Code
+          else:
+              ret[2] = server.help(args)
+          return ret
 </code></pre>
 
-<p>Let's notice a few more things on the previous example. First we see the arguments
+<p>Let&rsquo;s notice a few more things on the previous example. First we see the arguments
 passed to help, the first one (ignoring self) is server which an instance of a
 <a href="#server-object">Server Object</a>. The second one is args, which is an array of
 the arguments the user provided to our command. The number and the validity of
 the arguments SHOULD be checked (for missing arguments, type miss-match etc). The
 second thing we notice is the functions docstring, when help displays a list of
-available commands to the user, it will couple your command with it's docstring
-as a description.</p>
+available commands to the user, it will couple your command with it&rsquo;s docstring
+as a description. Finally, notice what the function returns. All Plug-in functions
+should return an array of size 3. In the first position is the state transition
+(in this case None), in the second position we have an integer. This represents
+the Return Code of the function (see <a href="../api/#rspet-servers-returncodes">ReturnCodes</a>).
+Finally, the third position contains a string. This string is what will be printed
+on the user&rsquo;s Console or API.</p>
 <h2 id="server-object">Server Object</h2>
-<p>In order to communicate with RSPET's server, a plug-in has to interface with an
+<p>In order to communicate with RSPET&rsquo;s server, a plug-in has to interface with an
 instance of a Server Object. In order to achieve that the class exposes the following
 functions.</p>
 <table>
@@ -324,7 +348,7 @@ to help plug-in developers Interface with RSPET.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../contribute/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../api/" class="btn btn-neutral float-right" title="API">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../code_structure/" class="btn btn-neutral" title="Code Structure"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -356,7 +380,7 @@ to help plug-in developers Interface with RSPET.</p>
         <span><a href="../code_structure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../api/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
