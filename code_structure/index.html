@@ -106,6 +106,8 @@
                 
                     <li><a class="toctree-l4" href="#rspets-server-module">RSPET's Server Module</a></li>
                 
+                    <li><a class="toctree-l4" href="#api">API</a></li>
+                
                     <li><a class="toctree-l4" href="#console">Console</a></li>
                 
                     <li><a class="toctree-l4" href="#server">Server</a></li>
@@ -123,6 +125,20 @@
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../dev/">Developing Plug-ins</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../REST_API/">RESTful WebAPI</a>
         
     </li>
 <li>
@@ -174,15 +190,74 @@
             <div class="section">
               
                 <h1 id="code-structure-overview">Code Structure Overview</h1>
-<h2 id="rspets-server-module">RSPET's Server Module</h2>
+<h2 id="rspets-server-module">RSPET&rsquo;s Server Module</h2>
 <p>The server module consists of three classes :</p>
 <ul>
+<li><a href="#API">API</a></li>
 <li><a href="#console">Console</a></li>
 <li><a href="#server">Server</a></li>
 <li><a href="#host">Host</a></li>
 </ul>
+<h2 id="api">API</h2>
+<p>The API class acts mostly as an interface class for the <a href="#server">Server</a> class.
+For the time being there are a couple of functions that are completely re-implemented
+in the API class but this is to be changed.</p>
+<p>Instance Attributes Table</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td><strong>Server</strong>. Instance of Server class.</td>
+</tr>
+</tbody>
+</table>
+<p>Class Functions Table</p>
+<table>
+<thead>
+<tr>
+<th>Function Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>__init__</td>
+<td>Start server.</td>
+</tr>
+<tr>
+<td>call_plugin</td>
+<td>Call a Plug-in&rsquo;s command.</td>
+</tr>
+<tr>
+<td>select</td>
+<td>Interface Server&rsquo;s select function.</td>
+</tr>
+<tr>
+<td>help</td>
+<td>Return the entirety of RSPET&rsquo;s help.</td>
+</tr>
+<tr>
+<td>refresh</td>
+<td>Interface Server&rsquo;s clean function.</td>
+</tr>
+<tr>
+<td>get_server</td>
+<td>Return API&rsquo;s instance of the Server.</td>
+</tr>
+<tr>
+<td>get_hosts</td>
+<td>Return hosts.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="console">Console</h2>
-<p>The Console class implements the module's Command Line Interface (CLI) and acts
+<p>The Console class implements the module&rsquo;s Command Line Interface (CLI) and acts
 as an interface between the user and the Server class.</p>
 <p>Class Attributes Table</p>
 <table>
@@ -203,7 +278,7 @@ as an interface between the user and the Server class.</p>
 </tr>
 <tr>
 <td>state</td>
-<td><strong>String</strong>. The state module's CLI is currently in.</td>
+<td><strong>String</strong>. The state module&rsquo;s CLI is currently in.</td>
 </tr>
 <tr>
 <td>quit_signal</td>
@@ -249,15 +324,15 @@ as an interface between the user and the Server class.</p>
 </tr>
 <tr>
 <td>_basic</td>
-<td>State transition to "basic" state.</td>
+<td>State transition to &ldquo;basic&rdquo; state.</td>
 </tr>
 <tr>
 <td>_connected</td>
-<td>State transition to "connected" state.</td>
+<td>State transition to &ldquo;connected&rdquo; state.</td>
 </tr>
 <tr>
 <td>_multiple</td>
-<td>State transition to "multiple" state.</td>
+<td>State transition to &ldquo;multiple&rdquo; state.</td>
 </tr>
 <tr>
 <td>_all</td>
@@ -283,15 +358,15 @@ socket, client selections and Plug-ins.</p>
 <tbody>
 <tr>
 <td>ip</td>
-<td><strong>String</strong>. The IP Address provided to the module's socket.</td>
+<td><strong>String</strong>. The IP Address provided to the module&rsquo;s socket.</td>
 </tr>
 <tr>
 <td>port</td>
-<td><strong>String</strong>. The port provided to the module's socket.</td>
+<td><strong>String</strong>. The port provided to the module&rsquo;s socket.</td>
 </tr>
 <tr>
 <td>sock</td>
-<td><strong>Socket</strong>. The module's socket.</td>
+<td><strong>Socket</strong>. The module&rsquo;s socket.</td>
 </tr>
 <tr>
 <td>hosts</td>
@@ -304,6 +379,10 @@ socket, client selections and Plug-ins.</p>
 <tr>
 <td>plugins</td>
 <td><strong>List</strong>. All Plug-ins currently loaded.</td>
+</tr>
+<tr>
+<td>log_opt</td>
+<td><strong>List</strong>. Letters indicating logging level.</td>
 </tr>
 <tr>
 <td>config</td>
@@ -402,11 +481,11 @@ socket, client selections and Plug-ins.</p>
 </tr>
 <tr>
 <td>ip</td>
-<td><strong>String</strong>. Client's IP Address.</td>
+<td><strong>String</strong>. Client&rsquo;s IP Address.</td>
 </tr>
 <tr>
 <td>port</td>
-<td><strong>String</strong>. Client's port.</td>
+<td><strong>String</strong>. Client&rsquo;s port.</td>
 </tr>
 <tr>
 <td>version</td>
@@ -461,7 +540,7 @@ socket, client selections and Plug-ins.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="rspets-client-module">RSPET's Client Module</h2>
+<h2 id="rspets-client-module">RSPET&rsquo;s Client Module</h2>
 <p>No content yet. Will update soon.</p>
               
             </div>
