@@ -123,6 +123,20 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../REST_API/">RESTful WebAPI</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../contribute/">Contributing</a>
         
     </li>
@@ -173,25 +187,38 @@
 <li><a href="#todo">Todo</a></li>
 </ul>
 <h2 id="goals">Goals</h2>
-<p>In the short-term goals, it's planned for both server and client to have a
+<p>In the short-term goals, it&rsquo;s planned for both server and client to have a
 plug-in system implemented.</p>
 <p>In the long-term goals, a comprehensive guide has to be created about plug-in
 creation so third party plug-ins can easily be created without internal knowledge
-of RSPET's design. Along with that a set of rules has to be developed for 3rd
+of RSPET&rsquo;s design. Along with that a set of rules has to be developed for 3rd
 party plug-ins to be officially endorsed, so that information about plug-ins can
 be centralized.</p>
 <p>In between, bugs and existing design flaws along side feature requests have to be
 dealt with.</p>
 <h2 id="todo">Todo</h2>
 <ul>
-<li>Fix logic bug where if a direct command's to Host OS execution is perpetual the Server deadlocks</li>
-<li>Add client update mechanism</li>
-<li>Add UDP Reflection functionality (already in the workings)</li>
+<li>Fix logic bug where if a direct command&rsquo;s to Host OS execution is perpetual the Server deadlocks</li>
+<li>Replace XORing with private key encryption (with random private key generated and traded upon connection)<ul>
+<li>Must find a way that does not require any extra installation on the client</li>
+<li>Add a NoSQL (at least server-side) to store and handle traded keys</li>
+<li>Add public key encryption in order to:<ul>
+<li>Encrypt the exchange of the private key</li>
+<li>Verify the &ldquo;authenticity&rdquo; of clients</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Add client update mechanism (initial thought was the use of execv but it acts up)</li>
+<li>Add a plugin system to clinet (a more compact one)<ul>
+<li>Add remote installation of plugins to client</li>
+<li>Add installed plugins report from client to server</li>
+</ul>
+</li>
+<li>Add UDP Reflection functionality</li>
 <li>Provide more settings via config file</li>
 <li>Re-introduce multythreading when handling multiple hosts.</li>
-<li>Make commands available with 'Tab' automaticly generated based on loaded plugins.</li>
-<li>Fix logical bug when deleting a client. (Client still shows up on List_Hosts)</li>
-<li>Create comprehensive plug-in creation guide.</li>
+<li>Make commands available with &lsquo;Tab&rsquo; automatically generated based on loaded plugins.</li>
 </ul>
               
             </div>
