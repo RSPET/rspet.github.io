@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>None/goals/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>None/deploy/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,7 @@
     
     <url>
      <loc>None/cli/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +36,7 @@
     
     <url>
      <loc>None/plug_ins/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +44,7 @@
     
     <url>
      <loc>None/execution_model/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -52,7 +52,7 @@
     
     <url>
      <loc>None/code_structure/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -60,7 +60,23 @@
     
     <url>
      <loc>None/dev/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/api/</loc>
+     <lastmod>2016-10-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/REST_API/</loc>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -68,7 +84,7 @@
     
     <url>
      <loc>None/contribute/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -76,7 +92,7 @@
     
     <url>
      <loc>None/faq/</loc>
-     <lastmod>2016-08-31</lastmod>
+     <lastmod>2016-10-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
