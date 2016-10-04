@@ -125,6 +125,20 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../REST_API/">RESTful WebAPI</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../contribute/">Contributing</a>
         
     </li>
@@ -170,11 +184,11 @@
             <div class="section">
               
                 <h1 id="cli-commands">CLI Commands</h1>
-<p>RSPET's server module provides a Command Line Interface (CLI) to its user. This
-part aims to introduce RSPET's CLI and detail the available commands.</p>
+<p>RSPET&rsquo;s server module provides a Command Line Interface (CLI) to its user. This
+part aims to introduce RSPET&rsquo;s CLI and detail the available commands.</p>
 <p>The commands listed bellow are part of the <a href="#essentials"><code>essentials</code></a>, the
 <a href="#files"><code>files</code></a> and the <a href="#udp"><code>udp</code></a> plug-ins.</p>
-<p>Feel free to ignore the "State(s)" and the "Transition" fields as the will rarely
+<p>Feel free to ignore the &ldquo;State(s)&rdquo; and the &ldquo;Transition&rdquo; fields as the will rarely
 be of use to an end user and are here purely to assist contributors and Plug-in
 developers.</p>
 <h2 id="essentials">essentials</h2>
@@ -193,77 +207,77 @@ developers.</p>
 <td align="center">help</td>
 <td align="center">List commands available in current state or provide syntax for a command.</td>
 <td align="center">help [command]</td>
-<td align="center">"basic", "connected", "selected"</td>
+<td align="center">&ldquo;basic&rdquo;, &ldquo;connected&rdquo;, &ldquo;selected&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Choose_Host</td>
 <td align="center">Select a single host.</td>
 <td align="center">Choose_Host &lt;host ID></td>
-<td align="center">"basic"</td>
-<td align="center">"connected"</td>
+<td align="center">&ldquo;basic&rdquo;</td>
+<td align="center">&ldquo;connected&rdquo;</td>
 </tr>
 <tr>
 <td align="center">Select</td>
 <td align="center">Select multiple hosts.</td>
-<td align="center">Select &lt;host ID [host Id] [host ID] ...></td>
-<td align="center">"basic"</td>
-<td align="center">"multiple"</td>
+<td align="center">Select &lt;host ID [host Id] [host ID] &hellip;></td>
+<td align="center">&ldquo;basic&rdquo;</td>
+<td align="center">&ldquo;multiple&rdquo;</td>
 </tr>
 <tr>
 <td align="center">ALL</td>
 <td align="center">Select all hosts.</td>
 <td align="center">ALL</td>
-<td align="center">"basic"</td>
-<td align="center">"all"</td>
+<td align="center">&ldquo;basic&rdquo;</td>
+<td align="center">&ldquo;all&rdquo;</td>
 </tr>
 <tr>
 <td align="center">Quit</td>
 <td align="center">Quit the CLI and terminate the server.</td>
 <td align="center">Quit</td>
-<td align="center">"basic"</td>
+<td align="center">&ldquo;basic&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Execute</td>
 <td align="center">Execute system command on client.</td>
 <td align="center">Execute &lt;command></td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Close_Connection</td>
 <td align="center">Kick the selected Client(s).</td>
 <td align="center">Close_Connection</td>
-<td align="center">"connected", "multiple"</td>
-<td align="center">"basic"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
+<td align="center">&ldquo;basic&rdquo;</td>
 </tr>
 <tr>
 <td align="center">List_Hosts</td>
 <td align="center">List all connected hosts.</td>
 <td align="center">List_Hosts</td>
-<td align="center">"basic"</td>
+<td align="center">&ldquo;basic&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">List_Sel_Hosts</td>
 <td align="center">List selected hosts.</td>
 <td align="center">List_Sel_Hosts</td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Exit</td>
 <td align="center">Unselect all hosts.</td>
 <td align="center">Exit</td>
-<td align="center">"connected", "multiple"</td>
-<td align="center">"basic"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
+<td align="center">&ldquo;basic&rdquo;</td>
 </tr>
 <tr>
 <td align="center">KILL</td>
 <td align="center">Stop client(s) from doing the current task.</td>
 <td align="center">KILL</td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 </tbody>
@@ -284,28 +298,28 @@ developers.</p>
 <td align="center">Pull_File</td>
 <td align="center">Pull a regular text file from the client.</td>
 <td align="center">Pull_File &lt;remote_file> [local_file]</td>
-<td align="center">"connected"</td>
+<td align="center">&ldquo;connected&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Pull_Binary</td>
 <td align="center">Pull a binary file from the client.</td>
 <td align="center">Pull_Binary &lt;remote_bin> [local_bin]</td>
-<td align="center">"connected"</td>
+<td align="center">&ldquo;connected&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Make_File</td>
 <td align="center">Send a regular text file to the host(s).</td>
 <td align="center">Make_File &lt;local_file> [remote_file]</td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">Make_Binary</td>
 <td align="center">Send a binary file to the host(s).</td>
 <td align="center">Make_Binary &lt;local_bin> [remote_bin]</td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 </tbody>
@@ -326,14 +340,14 @@ developers.</p>
 <td align="center">UDP_Flood</td>
 <td align="center">Flood target machine with UDP packets.</td>
 <td align="center">UDP_Flood &lt;target_ip> &lt;target_port> [payload]</td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 <tr>
 <td align="center">UDP_Spoof</td>
 <td align="center">Flood target machine with UDP packets via spoofed ip &amp; port.</td>
 <td align="center">UDP_Spoof &lt;traget_ip> &lt;target_port> &lt;spoofed_ip> &lt;spoofed_port> [payload]</td>
-<td align="center">"connected", "multiple"</td>
+<td align="center">&ldquo;connected&rdquo;, &ldquo;multiple&rdquo;</td>
 <td align="center">None</td>
 </tr>
 </tbody>
