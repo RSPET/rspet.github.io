@@ -101,6 +101,8 @@
                 
                     <li><a class="toctree-l4" href="#transitions">Transitions</a></li>
                 
+                    <li><a class="toctree-l4" href="#api-restful-webapi">API &amp; RESTful WebAPI</a></li>
+                
             
                 <li class="toctree-l3"><a href="#client-execution-model">Client Execution Model</a></li>
                 
@@ -120,6 +122,20 @@
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../dev/">Developing Plug-ins</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../REST_API/">RESTful WebAPI</a>
         
     </li>
 <li>
@@ -172,22 +188,30 @@
               
                 <h1 id="server-execution-model">Server Execution Model</h1>
 <h2 id="states">States</h2>
-<p>RSPET's CLI is built on a state transition model. In its current version it has
-three states, it's either in the "basic" state, the "connected" state or the
-"multiple" state. CLI's states directly relate to what the commands provided
+<p>RSPET&rsquo;s CLI is built on a state transition model. In its current version it has
+three states, it&rsquo;s either in the &ldquo;basic&rdquo; state, the &ldquo;connected&rdquo; state or the
+&ldquo;multiple&rdquo; state. CLI&rsquo;s states directly relate to what the commands provided
 affect.</p>
-<p>In the "basic" state commands provided affect the server itself.</p>
-<p>In the "connected" state commands provided affect the selected client.</p>
-<p>In the "multiple" state commands provided affect all the selected clients.</p>
+<p>In the &ldquo;basic&rdquo; state commands provided affect the server itself.</p>
+<p>In the &ldquo;connected&rdquo; state commands provided affect the selected client.</p>
+<p>In the &ldquo;multiple&rdquo; state commands provided affect all the selected clients.</p>
 <h2 id="transitions">Transitions</h2>
-<p>In a state transition model transitions are necessary so that the model can "move"
-between states. In RSPET' CLI's model there are five transitions,  "basic" that
-will move the model to "basic" state should it be in any other, "connected" that
-will move the model to "connected" state only from "basic" state, "multiple" that
-will move the model to "multiple" state only from "basic" state, "all" that is
-an interface of "multiple" and None that does not affect the model in any way.</p>
-<p>The state transition diagram for RSPET's server can be found bellow.</p>
+<p>In a state transition model transitions are necessary so that the model can &ldquo;move&rdquo;
+between states. In RSPET&rsquo; CLI&rsquo;s model there are five transitions,  &ldquo;basic&rdquo; that
+will move the model to &ldquo;basic&rdquo; state should it be in any other, &ldquo;connected&rdquo; that
+will move the model to &ldquo;connected&rdquo; state only from &ldquo;basic&rdquo; state, &ldquo;multiple&rdquo; that
+will move the model to &ldquo;multiple&rdquo; state only from &ldquo;basic&rdquo; state, &ldquo;all&rdquo; that is
+an interface of &ldquo;multiple&rdquo; and None that does not affect the model in any way.</p>
+<p>The state transition diagram for RSPET&rsquo;s server can be found bellow.</p>
 <p><img alt="RSPET's Server state transition diagram" src="https://github.com/panagiks/RSPET/blob/Beta/Server/CLI_state_diagram.png?raw=true" /></p>
+<h2 id="api-restful-webapi">API &amp; RESTful WebAPI</h2>
+<p>Since the API was initially designed to serve the RESTful WebAPI and since the
+later is by definition stateless, both the API and WebAPI are stateless. This does
+not mean that the states are not available or that the state model changes, it means
+that the states are not &ldquo;active&rdquo; when using either API. Despite that, state transitions
+that would normally occur are exposed through both APIs (they are returned one way
+or another). So it is up to the developer utilize either API to implement and manage
+the states.</p>
 <h1 id="client-execution-model">Client Execution Model</h1>
 <p>TODO</p>
               
