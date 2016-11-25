@@ -1,0 +1,5 @@
+{
+  "essentials": "/plugins/essentials.py",
+  "files": "/plugins/files.py",
+  "udp": "/plugins/udp.py"
+}
