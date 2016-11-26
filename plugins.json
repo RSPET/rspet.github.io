@@ -1,5 +1,14 @@
 {
-  "essentials": "/plugins/essentials.py",
-  "files": "/plugins/files.py",
-  "udp": "/plugins/udp.py"
+  "essentials": {
+    "uri": "/plugins/essentials.py",
+    "doc": "Plug-in module for RSPET server. Offer functions essential to server."
+  },
+  "files": {
+    "uri": "/plugins/files.py",
+    "doc": "Plug-in module for RSPET server. Offer remote file inclusion functions."
+  },
+  "udp": {
+    "uri": "/plugins/udp.py",
+    "doc": "Plug-in module for RSPET server. Offer functions related to udp flooding."
+  }
 }
