@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"essentials",
+		"files",
+		"udp"
+	],
+	"log": [
+		"INFO",
+	],
+	"plugin_base_url": [
+		"https://rspet.github.io"
+	]
+}
